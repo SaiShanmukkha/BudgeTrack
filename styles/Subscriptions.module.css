@@ -1,0 +1,49 @@
+.SubscriptionsDataCard{
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.SubscriptionsDataCard p{
+    margin: 10px;
+}
+
+.SubscriptionsDataCardBody{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.SubscriptionLogo{
+    object-fit: cover;
+    padding: 10px 0px;
+}
+
+.SubscriptionCardTile{
+    padding: 10px;
+    margin: 10px 2px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.SubscriptionCardTileHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SubscriptionCardTileHeader p{
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+
+@media screen and (max-width: 1160px) {
+    .SubscriptionsDataCardBody{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

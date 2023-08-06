@@ -1,0 +1,192 @@
+
+.sectionOne{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+
+.sectionTwo{
+    display: grid;
+    /* grid-template-columns: 3fr 4fr; */
+    grid-template-columns: 1fr;
+}
+
+/* Recent Transactions */
+
+.rtCard{
+    background-color: white;
+    border-radius: 10px;
+    min-height: 21rem;
+    margin: 5px 2px;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.rtCard h2{
+    color: rgb(68, 69, 69);
+}
+
+.rtItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.rtItemHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rtItemHeader p{
+    padding: 3px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: blueviolet;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.rtItemtrasactions{
+    margin: auto 0px auto;
+    height: 100%;
+}
+
+.rtItemDetail{
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rtItemDetail p{
+    font-size: small;
+    font-weight: 600;
+    color: rgb(96, 94, 94);
+}
+
+.rtItemIcon{
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-size: x-large;
+}
+
+.rtItemValue{
+    font-weight: 600;
+    font-size: larger;
+}
+
+
+/* Expense Overview */
+.eoCard{
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 10px 2px;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.eoItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.eoItemHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eoItemHeader h2{
+    color: rgb(145, 27, 255);
+}
+
+.eoItemHeader select{
+    background-color: rgb(93, 194, 241);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.eoItemDetail{
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eoItemDetail p{
+    font-size: large;
+    font-weight: 600;
+    color: rgb(96, 94, 94);
+}
+
+.eoItemIcon{
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-size: x-large;
+}
+
+.eoItemValue{
+    font-weight: 600;
+    font-size: larger;
+}
+
+/* Expense Details */
+.edCard{
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px 2px;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.edCardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.transaction_link{
+    color: blueviolet;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.transaction_link:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 720px) {
+    .sectionOne{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .sectionTwo{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

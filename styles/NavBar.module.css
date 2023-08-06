@@ -1,0 +1,84 @@
+.navBar{
+    min-height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0px 10px;
+    margin-inline: auto;
+    background-color: transparent;
+  }
+
+.title{
+  cursor: pointer;
+  color: yellow;
+  font-family: "Audiowide";
+}
+
+  .fooBar{
+    display: block;
+    width: 100%;
+    height: 0.8rem;
+  }
+
+  .menu{
+    /* width: 20%; */
+    flex-grow: 0.3;
+  }
+
+  .menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .menu ul li{
+    list-style: none;
+    font-weight: 700;
+    color: #FFD2D7;
+  }
+
+  .menu ul li::after{
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0px;
+    color: yellow;
+    height: 3px;
+    width: 100%;
+  }
+
+  .signUpBtn{
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight:600;
+    background-color: blue;
+    outline: none;
+    border: none;
+    color: white; 
+  }
+
+  .signOutBtn{
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight:600;
+    background-color: blue;
+    outline: none;
+    border: none;
+    color: white;
+  }
+
+@media screen and (max-width: 720px){
+  .navBar{
+    justify-content: center;
+  }
+
+  .menu{
+    margin: 1rem;
+  }
+}

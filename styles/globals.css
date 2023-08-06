@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+html{
+  /* background-image: linear-gradient(#0836ec,  #990df6, #c800ff); */
+  background-repeat: no-repeat;
+  /* background-color: rgb(102, 0, 255); */
+  background-color: #050f69;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  min-width: 450px;
+}
+
+html::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+

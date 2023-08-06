@@ -1,0 +1,25 @@
+.ErrorContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    height: 50vh;
+}
+
+.ErrorMessageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ErrorMessageContainer h1{
+    color: blueviolet;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+.ErrorMessageContainer h2{
+    color: whitesmoke;
+}

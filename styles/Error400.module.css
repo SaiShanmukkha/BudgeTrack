@@ -1,0 +1,36 @@
+.ErrorContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 50vh;
+}
+
+.Img{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.ErrorMessageContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ErrorMessageContainer h1{
+    color: blueviolet;
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+.ErrorMessageContainer h2{
+    color: whitesmoke;
+}
+
+@media screen and (max-width: 720px) {
+    .ErrorContainer{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,149 @@
+.edForm{
+    display: inline;
+}
+
+.financeType{
+    display: block;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: 0.5em 0em;
+}
+
+.financeType select{
+    display: block;
+    padding: 0.3em;
+    margin: 0.2em;    
+    width: 100%;
+    border-radius: 0.5em;
+    font-size: medium;
+    border: 2px solid purple;
+}
+
+.financeType label{
+    display: block;
+    font-size: large;
+    font-weight: 600;
+    margin: 0.2em;
+    color: blueviolet;
+}
+
+
+.expenseName label{
+    display: block;
+    font-size: large;
+    font-weight: 600;
+    margin: 0.2em;
+    color: blueviolet;
+}
+
+.expenseName input{
+    display: block;
+    padding: 0.3em;
+    width: 100%;
+    margin: 0.2em;
+    border-radius: 0.5em;
+    font-size: medium;
+    border: 2px solid purple;
+}
+
+.flexGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.financeAmount, .expenseCategory{
+    width: 47%;
+}
+
+.financeAmount label{
+    display: block;
+    font-size: large;
+    font-weight: 600;
+    margin: 0.2em;
+    color: blueviolet;
+}
+
+.financeAmount input{
+    display: block;
+    padding: 0.3em;
+    width: 100%;
+    font-weight: bold;
+    color: rgb(63, 7, 116);
+    margin: 0.2em;
+    border-radius: 0.5em;
+    font-size: medium;
+    border: 2px solid purple;
+}
+
+.expenseCategory label{
+    font-size: large;
+    font-weight: 600;
+    margin: 0.2em;
+    margin: 0.2em;
+    color: blueviolet;
+}
+
+.expenseCategory select{
+    padding: 0.3em;
+    margin: 0.2em;
+    border: 2px solid purple;
+    width: 100%;
+    border-radius: 0.5em;
+    font-size: medium;
+}
+
+
+
+
+@media screen and (max-width: 720px) {
+    .expenseCategory, .financeAmount{
+        display: block;
+        width: 100%;
+    }
+
+    .flexGroup{
+        display: block;
+    }
+}
+.expenseDescription label{
+    display: block;
+    font-size: medium;
+    font-weight: 600;
+    margin: 5px;
+    color: blueviolet;
+}
+
+.expenseDescription textarea{
+    display: block;
+    border: 2px solid purple;
+    width: 100%;
+    padding: 0.2em;
+    margin: 0.3em;
+    padding: 0.2em;
+    max-height: 7rem;
+    height: 7rem;
+    resize: vertical;
+    width: 100%;
+    border-radius: 0.5em;
+    font-weight: 600;
+    font-family: 'Consolas';
+    font-size: large;
+    line-height: 1em;
+    color: rgb(65, 2, 65);
+}
+
+.expenseSubmit{
+    border: 2px solid blueviolet;
+    background-color: rgb(161, 85, 232);
+    border-radius: 1em;
+    color: white;
+    padding: 0.5em 2em;
+    margin: 0.8em 0.2em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
