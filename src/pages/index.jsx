@@ -68,7 +68,7 @@ export default function Index() {
               <div className={styles.featureCards}>
                 <card className={styles.featureCard}>
                   <h3>Safe</h3>
-                  <p>BudgeTrack robust authentication mechanisms to prevent unauthorized access.</p>
+                  <p>BudgeTrack uses robust authentication mechanisms to prevent unauthorized access.</p>
                 </card>
 
                 <card className={styles.featureCard}>

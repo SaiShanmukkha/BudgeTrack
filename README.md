@@ -1,4 +1,4 @@
-######[BudgeTrack](https://budgetrack.vercel.app)
+## App deployed at [https://budgetrack.vercel.app](https://budgetrack.vercel.app)
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
