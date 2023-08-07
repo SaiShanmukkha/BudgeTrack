@@ -17,7 +17,7 @@ export default function Index() {
         <main className={styles.mainContent}>            
             
             <div className={styles.sectionOne}>
-              <Image layout={'fill'} alt={"Analytics Theme Pic"} src={"/analytics.png"} className={styles.analyticImg} />
+              <Image fill={true} alt={"Analytics Theme Pic"} src={"/analytics.png"} className={styles.analyticImg} />
               <div className={styles.statement}>
                 <h1>Take Control of Your Finances: Simplify Expense Tracking with Our Powerful Tool.</h1>
                 <p>Taking control of your finances has never been this easy. Let our tracker do the heavy lifting for you.</p>
@@ -55,7 +55,7 @@ export default function Index() {
             </div>
 
             <div className={styles.sectionThree}>
-              <Image layout={'fill'} alt={"Analytics Theme Pic"} src={"/dataanalysis.png"} className={styles.section3AnalyticImg} />
+              <Image fill={true} alt={"Analytics Theme Pic"} src={"/dataanalysis.png"} className={styles.section3AnalyticImg} />
               <div className={styles.section3Data}>
                 <h1>Stay in the know about cash flow</h1>
                 <p>BudgeTrack tracks your expenses throughout the year, so you can predict and manage your cash flow with ease. View the built-in cash flow statement and see how much money you have—so you can cover your bills.**</p>
