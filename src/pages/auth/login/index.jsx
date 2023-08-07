@@ -60,7 +60,7 @@ export default function Login(){
 
                     <div className={styles.signInForm}>
                         <div className={styles.signInFormHeader}>
-                            <h2>Login with Email & Password</h2>
+                            <h2>Login with Credentials</h2>
                         </div>
                         <form onSubmit={handleSignIn}>
                             <div className={`${styles.formGroup}`}>

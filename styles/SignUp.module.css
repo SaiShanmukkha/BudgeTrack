@@ -1,16 +1,15 @@
 .mainContent{
-    width: 45%;
+    width: 50%;
     text-align: center;
     margin: auto;
 }
 
 .welcomeHeader{
-    color: yellowgreen;
+    color: rgb(39, 89, 253);
     margin: 1rem;
 }
 
 .paraContent{
-    color: blanchedalmond;
     font-size: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
@@ -31,7 +30,6 @@
 }
 
 .signupLink{
-    color: burlywood;
     font-family: Arial, Helvetica, sans-serif, Times, serif;
     margin: 1rem;
     font-weight: 700;
@@ -47,7 +45,7 @@
 
 .signUpFormContainer{
     padding: 1rem;
-    border: 1px solid yellow;
+    border: 2px solid black;
     border-radius: 1rem;
     width: 80%;
     margin: auto;
@@ -56,10 +54,9 @@
 
 
 .signUpFormHeader{
-    color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 0.8rem;
-    text-shadow: 2px 2px rgb(90, 132, 90);
+    text-shadow: 2px 2px rgb(226, 229, 226);
     text-decoration: solid;
     text-align: center;
 }
@@ -69,8 +66,8 @@
 }
 
 .formLabel{
-    color: white;
-    font-weight: 500;
+    color: rgb(124, 3, 253);
+    font-weight: 700;
     display: block;
     margin: 0.4rem 0;
 }
@@ -82,8 +79,7 @@
     padding: 0.2em;
     color: white;
     margin: 0.4rem 0;
-    border: 1px solid rgb(182, 227, 4);
-    background-color: rgb(23, 21, 21);
+    border: 2px solid rgb(62, 3, 144);
 }
 
 .inputField:focus{
@@ -93,19 +89,20 @@
 
 .submitBtn{
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     padding: 0.5rem;
+    color: white;
     width: 100%;
     margin: 0.5rem 0;
     border-radius: 0.5rem;
     cursor: pointer;
-    background-color: rgb(182, 227, 4);
+    background-color: rgb(6, 53, 195);
 }
 
 
 .signUpFormContainer hr {
-    background-color: rgb(238, 255, 0);
-    height: 0.1rem;
+    background-color: rgb(63, 2, 129);
+    height: 0.2rem;
     outline: none;
     border: none;
     margin: 1rem 0;
@@ -113,12 +110,12 @@
 
 .socialAuth{
     text-align: center;
-    color: white;
+    font-weight: 600;
     margin: 1.5rem 0;
 }
 
 .socialBtn{
-    margin: 1rem;
+    margin: 0.6rem;
     padding: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
@@ -137,4 +134,10 @@
 .githubBtn{
     border: 2px solid white;
     background-color: black;
+}
+
+@media all and (width < 720px){
+    .mainContent{
+        width: 100%;
+    }
 }

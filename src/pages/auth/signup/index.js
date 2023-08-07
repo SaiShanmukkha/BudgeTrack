@@ -57,7 +57,7 @@ export default function SignUp(){
 
                     <div className={styles.signUpFormContainer}>
                         <div className={styles.signUpFormHeader}>
-                            <h2>Register using Email & Password</h2>
+                            <h2>Register using Email</h2>
                         </div>
 
                         <div className={styles.signUpForm}>
@@ -85,7 +85,7 @@ export default function SignUp(){
                         <hr />
 
                         <div className={styles.socialAuth}>
-                            <p>-------------- or register using below options ---------------</p>
+                            <p>---------- or register using below options --------</p>
                             <button className={`${styles.socialBtn} ${styles.googleBtn}`} onclick={()=>{signIn("google")}} >Google</button>
                             <button className={`${styles.socialBtn} ${styles.githubBtn}`} onClick={()=>{signIn("github")}} >Github</button>
                         </div>
