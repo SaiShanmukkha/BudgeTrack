@@ -7,12 +7,7 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
-.CategoriesDataCardHeader{
-    /* color: #D4ADFC; */
-}
-
 .CategoriesContent{
-    /* display: flex; */
     flex-direction: column;
     flex-wrap: wrap;
     padding: 5px 0;
@@ -20,8 +15,11 @@
 
 .categoryItemIcon{
     display: inline;
+    color: var(--icon-color);
+    background-color: var(--icon-background);
+    font-size: larger;
     margin: 3px;
-    padding: 3px;
+    padding: 3px 6px;
     border-radius: 6px;
 }
 

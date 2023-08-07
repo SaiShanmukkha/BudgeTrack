@@ -1,5 +1,6 @@
 import styles from "@/styles/Categories.module.css";
 import { categoryIcons } from "../Utilities/constants";
+import Loader from "../../components/Loader"
 
 export default function CategoriesData(props){
     return (
@@ -7,19 +8,19 @@ export default function CategoriesData(props){
             <h2 className={styles.CategoriesDataCardHeader}>Categories</h2>
             <div>
                 {
-                    props.categories != undefined ? 
+                    props.loading ? <Loader /> : (props.categories.length > 0 ?
                     <div className={styles.CategoriesContent}>
                         {
                             props.categories.map((category) => {
                                 return (
                                     <div key={category.id} className={styles.categoryTile}>
-                                        <div className={`${styles.categoryItemIcon}`} style={{'backgroundColor': '#bb45e6', 'border': '2px solid #560f70'}}>{categoryIcons[category.categoryName]}</div>
+                                        <div className={`${styles.categoryItemIcon}`} >{categoryIcons[category.categoryName]}</div>
                                         {category.categoryName}
                                     </div>
                                 );
                             })
                         }
-                    </div> : <div>No Data Available</div>
+                    </div> : <div>Not able to fetch data.</div>)
                 }
             </div>
         </div>

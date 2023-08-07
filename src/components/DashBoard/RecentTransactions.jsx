@@ -13,7 +13,7 @@ export default function RecentTransactions(props) {
               props.loading ? <Loader /> : props.recentTransactions.length > 0 ? props.recentTransactions.map((transaction)=>{
                   return <div className={styles.rtItem} key={transaction.id}>
                           <div className={styles.rtItemDetail}>
-                              <div className={`${styles.rtItemIcon}`} style={{'backgroundColor': '#bb45e6', 'border': '2px solid #560f70'}}>{transaction.isIncome?categoryIcons["income"]:categoryIcons[transaction.categoryName.categoryName]}</div>
+                              <div className={`${styles.rtItemIcon}`} >{transaction.isIncome?categoryIcons["income"]:categoryIcons[transaction.categoryName.categoryName]}</div>
                               <p>{new Date(transaction.createdAt).toISOString().substr(0, 10)}</p>
                               <p>{transaction.financeName}</p>
                           </div>

@@ -72,10 +72,13 @@
     width: 35px;
     height: 35px;
     border-radius: 10px;
+    color: var(--icon-color);
+    background-color: var(--icon-background);
+    font-size: larger;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2px;
+    padding: 3px;
     font-size: x-large;
 }
 

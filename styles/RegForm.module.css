@@ -26,7 +26,7 @@
     font-size: large;
     font-weight: 600;
     margin: 0.2em;
-    color: blueviolet;
+    color: rgb(119, 3, 187);
 }
 
 
@@ -35,7 +35,7 @@
     font-size: large;
     font-weight: 600;
     margin: 0.2em;
-    color: blueviolet;
+    color: rgb(119, 3, 187);
 }
 
 .expenseName input{
@@ -64,7 +64,7 @@
     font-size: large;
     font-weight: 600;
     margin: 0.2em;
-    color: blueviolet;
+    color: rgb(119, 3, 187);
 }
 
 .financeAmount input{
@@ -84,7 +84,7 @@
     font-weight: 600;
     margin: 0.2em;
     margin: 0.2em;
-    color: blueviolet;
+    color: rgb(119, 3, 187);
 }
 
 .expenseCategory select{
@@ -114,7 +114,7 @@
     font-size: medium;
     font-weight: 600;
     margin: 5px;
-    color: blueviolet;
+    color: rgb(119, 3, 187);
 }
 
 .expenseDescription textarea{

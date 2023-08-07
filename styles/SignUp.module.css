@@ -76,10 +76,11 @@
     width: 100%;
     height: 2rem;
     border-radius: 0.4rem;
+    font-weight: 600;
     padding: 0.2em;
-    color: white;
+    color: rgb(54, 6, 80);
     margin: 0.4rem 0;
-    border: 2px solid rgb(62, 3, 144);
+    border: 2px solid rgb(63, 1, 150);
 }
 
 .inputField:focus{

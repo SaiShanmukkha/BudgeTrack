@@ -18,9 +18,9 @@ export default function Login(){
     useEffect(() => {
         if (status === "authenticated") {
             router.push("/home",)
-            toast.info("Already Logged in. Redirecting to /home")
+            toast.success("Logged in. Redirecting to home page.")
         }
-    });
+    }, [status]);
 
     const handleSignIn = async (e) => {
         e.preventDefault();

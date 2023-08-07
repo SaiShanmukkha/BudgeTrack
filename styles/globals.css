@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --icon-background: rgb(119, 3, 187);
+  --icon-color: white;
+}
+
 a {
   color: inherit;
   text-decoration: none;

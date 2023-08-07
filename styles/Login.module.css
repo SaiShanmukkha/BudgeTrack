@@ -69,7 +69,8 @@
     height: 2rem;
     border-radius: 0.4rem;
     padding: 0.2em;
-    color: white;
+    font-weight: 600;
+    color: rgb(35, 2, 71);
     margin: 0.4rem 0;
     border: 2px solid rgb(130, 4, 227);
 }
