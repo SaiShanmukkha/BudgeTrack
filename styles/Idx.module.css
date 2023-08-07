@@ -2,42 +2,163 @@
     padding: 0.6rem;
 }
 
-.onAuthInfoCard{
-    height: 200px;
-    border-radius: 10px;
-    padding: 1rem;
-    width: 100%;
-    background-color: white;
-    margin-bottom: 1rem;
-}
-
-.InfoSection{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 1rem 0;
-    gap: 0.3rem 1.5rem;
-}
-
-.InfoSection > * {
-    flex: 1 0 auto;
-}
-
-.infoBtn{
-    background-color: blue;
-    color: white;
-    padding: 0.5rem;
-    outline: none;
-    border-radius: 10px;
-}
+/* Section 1 */
 
 .sectionOne{
-    height: 30rem;
     width: 100%;
-    background-color: white;
     display: flex;
     align-items: center;
-    justify-items: space-between;
+    justify-items: center;
     padding: 1rem;
     border-radius: 10px;
+}
+
+.sectionOne .statement{
+    width: 50%;
+}
+
+
+.sectionOne .statement h1{
+    color: blueviolet;
+    text-align: start;
+    justify-self: start;
+    font-size: max(2rem, 3vw);
+}
+
+.sectionOne .statement p{
+    font-weight: 600;
+    font-size: large;
+    margin: 1rem 0;
+    width: 50ch;
+    text-align: center;
+}
+
+.analyticImg {
+    object-fit: fill;
+    width: min(100%, 30rem) !important;
+    position: unset !important;
+}
+
+
+
+/* Section 2 */
+
+.sectionTwo{
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.sectionTwo h1{
+    text-align: center;
+    font-size: max(2rem, 4vw);
+}
+
+.sectionTwo .aboutContainer{
+    display: flex;
+    padding: 1rem;
+    margin-top: 10px;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutCard{
+    background-color: rgb(248, 249, 254);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 30%;
+    font-weight: 600;
+    border: 1px solid rgb(184, 231, 231);
+    box-shadow: 5px 5px 5px 0 rgb(127, 126, 126);
+}
+
+.cardIcon {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 2px;
+    border: 2px solid red; 
+    border-radius: 50%; 
+    overflow: hidden;
+}
+
+.aboutCard h3{
+    color: rgb(135, 18, 245);
+    margin: 0.8rem 0;
+}
+
+
+/* Section 3 */
+
+
+.sectionThree{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.section3Data{
+    width: 30%;
+}
+
+.section3AnalyticImg {
+    width: min(100%, 50rem) !important;
+    height: min(100%, 50rem) !important;
+    padding: 0;
+    margin: 0;
+    position: unset !important;
+}
+
+.section3Data h1{
+    font-size: max(2rem, 4vw);
+    margin: 1rem 0;
+}
+
+.section3Data p {
+    font-weight: 600;
+    width: 35ch;
+    font-size: 1.3rem;
+}
+
+
+/* Section 4 */
+
+.sectionFour{
+    text-align: center;
+    display: block;
+}
+
+.sectionFour h1 {
+    font-size: 4rem;
+    margin: 1rem;
+}
+
+.featureCards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.featureCard{
+    padding: 1rem;
+    background-color: rgb(243, 247, 253);
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 0 rgb(127, 126, 126);
+    margin: 1rem;
+}
+
+.featureCard h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: rgb(68, 68, 208);
+}
+
+.featureCard p {
+    font-weight: 600;
+    margin: 1rem 0;
 }

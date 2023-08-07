@@ -12,7 +12,7 @@
 }
 
 .transaction_filters_header{
-    color: #F4E0B9;
+    color: #a200ff;
 }
 
 .loaderContainer{
@@ -57,13 +57,14 @@
     border-radius: 10px;
     padding: 5px;
     font-size: medium;
+    background-color: #ffffff;
     cursor: pointer;
 }
 
 .show_data:hover{
     transition: all 0.2s linear;
     color: rgb(255, 255, 255);
-    background-color: rgb(184, 111, 233);
+    background-color: rgb(153, 0, 255);
 }
 
 

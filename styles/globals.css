@@ -16,8 +16,8 @@ a {
 html{
   /* background-image: linear-gradient(#0836ec,  #990df6, #c800ff); */
   background-repeat: no-repeat;
-  /* background-color: rgb(102, 0, 255); */
-  background-color: #050f69;
+  background-color: rgb(255, 255, 255);
+  /* background-color: #050f69; */
   background-position: center;
   background-size: cover;
   min-height: 100vh;
