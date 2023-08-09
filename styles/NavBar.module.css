@@ -65,11 +65,11 @@
 @media screen and (max-width: 720px){
   .navBar{
     justify-content: center;
-    margin: 1rem 0;
+    padding: 1rem 0;
   }
   
   .menu{
     gap: 15px;
-    margin: 0.8rem;
+    margin: 0.3rem;
   }
 }

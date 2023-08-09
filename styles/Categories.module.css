@@ -32,4 +32,13 @@
     border-radius: 10px;
     border: 1px dotted purple;
     font-size: medium;
+    font-weight: 600;
+}
+
+.noCategories{
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    font-weight: 600;
+    color: rgb(57, 3, 108);
 }

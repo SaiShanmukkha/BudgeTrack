@@ -12,6 +12,7 @@ export default function Home() {
   const [reload, setReload] = useState(false);
   const [categories, setCategories] = useState([]);
   const [recentTransactions, setRecentTransactions] = useState([]);
+  const [subscriptions, setSubscriptions] = useState([]);
   
   useEffect(() => {
     setTimeout(()=>{
@@ -22,12 +23,20 @@ export default function Home() {
             setCategories(data.categories);
           }
         });
+
         fetch('/api/hygraph/fetchrecenttransactions', { cache: 'no-store'})
         .then(response => response.json())
         .then(data => {
           setRecentTransactions(data);
-          setLoading(false);
         });
+
+        fetch('/api/hygraph/fetchsubscriptions', { cache: 'no-store'})
+        .then(response => response.json())
+        .then(data => {
+          setSubscriptions(data.subcriptions);
+        });
+        
+        setLoading(false);
         setReload(false);
       }, 2000);
       return () => {};      
@@ -52,7 +61,7 @@ export default function Home() {
 
           <div className={styles.sectionTwo}>
             <CategoriesData loading={loading} categories={categories} />
-            <Subscriptions />
+            <Subscriptions loading={loading} subscriptions={subscriptions} />
           </div>
         </main>   
         

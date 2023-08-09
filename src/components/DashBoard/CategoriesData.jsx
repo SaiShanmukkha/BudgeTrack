@@ -20,7 +20,7 @@ export default function CategoriesData(props){
                                 );
                             })
                         }
-                    </div> : <div>Not able to fetch data.</div>)
+                    </div> : <div className={styles.noCategories}>Not able to fetch data.</div>)
                 }
             </div>
         </div>

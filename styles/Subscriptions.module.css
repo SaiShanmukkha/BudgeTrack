@@ -1,10 +1,18 @@
 .SubscriptionsDataCard{
     background-color: white;
+    position: relative;
     border-radius: 10px;
     margin: 5px 2px;
     padding: 15px;
     overflow: hidden;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.addSub{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
 }
 
 .SubscriptionsDataCard p{
@@ -14,7 +22,9 @@
 .SubscriptionsDataCardBody{
     display: grid;
     align-items: center;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
 
 .SubscriptionLogo{
@@ -40,10 +50,38 @@
     font-size: 1.3rem;
 }
 
+.subscriptionImg{
+    position: unset !important;
+    width: 320px !important;
+    height: 80px !important;
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px;
+    object-fit: cover !important;
+}
+
+.SubscriptionCardTile p{
+    font-weight: 500;
+    color: rgb(55, 52, 52);
+}
+
+.noSubscriptions{
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    font-weight: 600;
+    color: rgb(57, 3, 108);
+}
 
 @media screen and (max-width: 1160px) {
     .SubscriptionsDataCardBody{
-        display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 720px) {
+    .SubscriptionsDataCardBody{
+        grid-template-columns: repeat(1, 1fr);
     }
 }

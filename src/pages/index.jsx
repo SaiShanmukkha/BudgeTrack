@@ -14,7 +14,7 @@ export default function Index() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className={styles.mainContent}>            
+        <main className={styles.mainContent}>       
             
             <div className={styles.sectionOne}>
               <Image fill={true} alt={"Analytics Theme Pic"} src={"/analytics.png"} className={styles.analyticImg} />
