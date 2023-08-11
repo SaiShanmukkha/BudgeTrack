@@ -69,7 +69,6 @@ export const authOptions = {
   },
   callbacks: {
     async jwt({ token, user, account, profile, isNewUser }) {
-      token.isNewUser = isNewUser;
       if(account){
         if(account.type === "credentials"){
           if(user){
@@ -87,7 +86,7 @@ export const authOptions = {
       }
       return token;
     },
-    async session({ session, user, token }) {
+    async session({ session, token }) {
       session.user.userId = token.userId;
       session.user.emailVerified = token.emailVerified;
       return session;
