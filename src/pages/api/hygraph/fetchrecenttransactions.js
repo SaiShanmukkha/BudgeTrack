@@ -1,5 +1,7 @@
 export default async function handler(req, res) {
+  if(req.method === 'POST') {
     try{      
+      const data = req.body;
       const response = await fetch(process.env.HYGRAPH_RW_ENDPOINT, {
         method: "POST",
         headers: {
@@ -9,7 +11,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           query: `
             query MyQuery {
-              finances(orderBy: createdAt_ASC, last: 9) {
+              finances(where: {userId: "${data.userId}"}, orderBy: createdAt_ASC, last: 9) {
                 amount
                 createdAt
                 categoryName {
@@ -30,7 +32,9 @@ export default async function handler(req, res) {
         return res.status(400).json({"message":"Error Occurred while fetching transactions."})
       }
       } catch (e) {
-        console.error("Error fetching transactions: ", e);
         res.status(500).json({"message" : "Your Request can't be processed."});
       }
+    }else{
+      return res.status(405).json({"message":"Invalid Method."})
+    }
   };

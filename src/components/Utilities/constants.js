@@ -1,4 +1,4 @@
-import { FaBolt, FaSearchDollar, FaMobile, FaPiggyBank, FaHamburger, FaAmbulance, FaHouseUser, FaShoppingBasket, FaSchool, FaCar, FaCoins, FaCircleNotch, FaMoneyBillWave, FaWrench, FaReceipt, FaCommentDollar } from 'react-icons/fa';
+import { FaSearchDollar, FaShoppingBag, FaBookOpen, FaMobile, FaPiggyBank, FaHamburger, FaAmbulance, FaHouseUser, FaShoppingBasket, FaSchool, FaCar, FaCoins, FaCircleNotch, FaMoneyBillWave, FaWrench, FaReceipt, FaCommentDollar } from 'react-icons/fa';
 import { GiGamepad } from 'react-icons/gi'
 import { BsBatteryCharging } from'react-icons/bs'
 
@@ -13,14 +13,14 @@ export const categoryIcons = {
     "Other" : <FaCircleNotch />,
     "undefined" : <FaCommentDollar />,
     "Miscellaneous" : <FaSearchDollar />,
-    "Groceries" : <FaCoins />,
+    "Groceries" : <FaShoppingBag />,
     "Housing" : <FaHouseUser />,
     "Medical and Healthcare" : <FaAmbulance />,
     "Communication and Internet" : <FaMobile />,
     "Food" : <FaHamburger />,
     "Fuel" : <BsBatteryCharging />,
     "Rentals" : <FaPiggyBank />,
-    "Learning and Development" : <FaBolt />,
+    "Learning and Development" : <FaBookOpen />,
     "Recreational and Entertainment" : <GiGamepad />,
   };
 

@@ -4,17 +4,21 @@ import common from "@/styles/Common.module.css";
 import styles from "@/styles/transactions.module.css";
 import Loader from "@/src/components/Loader";
 import CyborgMap from "@/src/components/Utilities/CyborgMap";
+import { toast } from "react-toastify";
 import ExpOverview from "@/src/components/DashBoard/Overview";
 import PieChart from "@/src/components/Charts/PieChart";
 import BarChart from "@/src/components/Charts/BarChart";
 import DataTable from "@/src/components/Charts/DataTable";
+import { useSession } from "next-auth/react"
 
 export default function Overview() {
+  
   const date = new Date();
   const [loading, setLoading] = useState(true);  
   const [month, setMonth] = useState(`0${date.getMonth() + 1}`);
   const [year, setYear] = useState(date.getFullYear());
   const [analyticsData, setAnalyticsData] = useState({});
+  const { data:session } = useSession({required:true});
 
   let years_data = [];
   // Starting Year From 2023
@@ -57,8 +61,7 @@ export default function Overview() {
         name: "July",
         value: "07",
         days: 31
-      },
-  
+      },  
       {
         name: "August",
         value: "08",
@@ -84,20 +87,18 @@ export default function Overview() {
         value: "12",
         days: 31
       },
-    ];
+  ];
 
   const dataForTable = (transactions)=>{
     let tableData = [];
-
     for(const trans of transactions){
-      tableData.push([new Date(trans.financeDate), trans.financeName, trans.amount, trans.categoryName.categoryName, trans.isIncome])
+      tableData.push([trans.financeDate, trans.financeName, trans.amount, trans.categoryName.categoryName, trans.isIncome, trans.description])
     }
-
-    return [["Date", "Transaction Name", "Amount", "Category", "isIncome"], ...tableData];
+    return [["Date", "Transaction Name", "Amount", "Category", "isIncome", "Description"], ...tableData];
   };
 
   const classifyByDay = (transactions) => {
-    const dayNumbers = Array.from({ length: months_data[parseInt(month)]["days"] }, (_, i) => i + 1);
+    const dayNumbers = Array.from({ length: months_data[parseInt(month) - 1]["days"] }, (_, i) => i + 1);
 
     const monthMap = dayNumbers.reduce((map, day) => {
       map.set(day, {income: 0.0, expense: 0.0});
@@ -124,7 +125,7 @@ export default function Overview() {
   const classifyFinanceData = (transactions) => {
     let income = 0;
     let expense = 0;
-    let total_transactions = transactions.length;
+    let total_transactions = (transactions.length)??0;
     let inflow_transactions = 0;
     let outflow_transactions = 0;
     let category_map = new CyborgMap();
@@ -160,15 +161,30 @@ export default function Overview() {
   };
 
   const fetchData = async () => {
-    setLoading(true);
-    let res = await fetch(
-      `/api/hygraph/fetchtransactionbyfilters?month=${month}&year=${year}`, { cache: 'no-store'}
-    );
-    if (res.status == 200) {
-      let data = await res.json();
-      classifyFinanceData(data.transactions);
+    try{
+      setLoading(true);
+      let res = await fetch(
+        `/api/hygraph/fetchtransactionbyfilters`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: session.user.userId,
+            month: month,
+            year: year
+          })
+        }
+      );
+      if (res.status == 200) {
+        let data = await res.json();
+        classifyFinanceData(data.transactions);
+      }
+    }catch(err){
+      toast.error("Failed to fetch data.")
+    }finally{
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   useEffect(() => {

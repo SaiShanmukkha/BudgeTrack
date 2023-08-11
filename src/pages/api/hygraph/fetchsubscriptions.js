@@ -1,8 +1,9 @@
 export default async function handler(req, res) {
+  if(req.method === 'POST') {
     let subcriptions_data = [];
     let aresubcriptionsAvailable = true;
     let currentIndex = 0;
-  
+    const data = req.body;
     try {
       while (aresubcriptionsAvailable) {
         const response = await fetch(process.env.HYGRAPH_RW_ENDPOINT, {
@@ -14,7 +15,7 @@ export default async function handler(req, res) {
           body: JSON.stringify({
             query: `
             query MyQuery {
-                userSubscriptionsConnection {
+                userSubscriptionsConnection(where: {userId: "${data.userId}"}) {
                   edges {
                     node {
                       description
@@ -57,7 +58,9 @@ export default async function handler(req, res) {
       }
       return res.status(200).json({"subcriptions": subcriptions_data});
     } catch (e) {
-      console.error("Error fetching subcriptions: ", e);
       res.status(400).json({ message: "Bad Request" });
     }
+  }else{
+    return res.status(405).json({"message":"Invalid Method."})
   }
+};

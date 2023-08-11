@@ -6,6 +6,7 @@ import RecentTransactions from "@/src/components/DashBoard/RecentTransactions"
 import CategoriesData from "@/src/components/DashBoard/CategoriesData"
 import Subscriptions from "@/src/components/DashBoard/Subscriptions"
 import { useState, useEffect } from 'react';
+import { useSession } from "next-auth/react" 
 
 export default function Home() {   
   const [loading, setLoading] = useState(true);
@@ -13,10 +14,11 @@ export default function Home() {
   const [categories, setCategories] = useState([]);
   const [recentTransactions, setRecentTransactions] = useState([]);
   const [subscriptions, setSubscriptions] = useState([]);
-  
+  const { data:session } = useSession({ required: true, });
+
   useEffect(() => {
     setTimeout(()=>{
-        fetch("/api/hygraph/fetchcategories", { cache: "no-store"})
+        fetch("/api/hygraph/fetchcategories")
         .then((response) => response.json())
         .then((data) => {
           if(data["message"] == undefined) {
@@ -24,16 +26,36 @@ export default function Home() {
           }
         });
 
-        fetch('/api/hygraph/fetchrecenttransactions', { cache: 'no-store'})
+        fetch('/api/hygraph/fetchrecenttransactions', { 
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: session.user.userId,
+          })
+        })
         .then(response => response.json())
         .then(data => {
-          setRecentTransactions(data);
+          if(data["message"] == undefined){
+            setRecentTransactions(data);
+          }
         });
 
-        fetch('/api/hygraph/fetchsubscriptions', { cache: 'no-store'})
+        fetch('/api/hygraph/fetchsubscriptions', { 
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: session.user.userId,
+          })
+        })
         .then(response => response.json())
         .then(data => {
-          setSubscriptions(data.subcriptions);
+          if(data["message"] == undefined) {
+            setSubscriptions(data.subcriptions);
+          }
         });
         
         setLoading(false);

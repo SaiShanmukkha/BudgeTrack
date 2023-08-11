@@ -48,7 +48,6 @@ export default async function handler(req, res) {
       }
       return res.status(200).json({"categories": categories_data});
     } catch (e) {
-      console.error("Error fetching categories: ", e);
       res.status(400).json({ message: "Bad Request" });
     }
   }

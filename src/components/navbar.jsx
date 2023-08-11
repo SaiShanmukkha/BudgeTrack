@@ -6,7 +6,6 @@ import { useSession, signOut } from "next-auth/react"
 
 export default function NavBar() {
   const { data:session, status, update} = useSession();
-  console.log(session);
   return (  
       <div className={common.container}>
         <div className={styles.navBar}>

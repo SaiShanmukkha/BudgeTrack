@@ -1,13 +1,41 @@
 .dataTable{
     border-radius: 10px;
     overflow: hidden;
-    padding: 5px 0px;
     background-color: white;
     margin: 5px 2px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .headerRow{
-    background-color: rgb(164, 102, 221);
-    font-weight: 900;
+    background-color: rgb(145, 27, 255);
+    color: white;
 }
+
+/* .tableRow{
+    
+}
+
+.oddTableRow{
+   
+} */
+
+.selectedTableRow{
+    background-color: rgb(220, 200, 239);
+    font-weight: 500;
+}
+
+.hoverTableRow{
+    background-color: rgb(224, 221, 226);
+}
+
+.headerCell{
+    border: 1px solid black !important;    
+}
+
+.tableCell{
+    border: 1px solid black !important;
+}
+
+/* .rowNumberCell{
+    
+} */

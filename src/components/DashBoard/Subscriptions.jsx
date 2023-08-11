@@ -3,7 +3,6 @@ import Image from "next/image";
 import Loader from "../../components/Loader"
 
 export default function Subscriptions(props){
-    console.log(props.subscriptions);
     return (
         <div className={styles.SubscriptionsDataCard}>
             <h2>Subscriptions</h2>

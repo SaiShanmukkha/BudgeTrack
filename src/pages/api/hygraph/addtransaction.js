@@ -6,6 +6,7 @@ export default async function handler(req, res) {
           mutation Assets {
             createFinance(
               data: {
+                userId: "${data.userId}"
                 description: "${data.description}", 
                 financeName: "${data.name}", 
                 isIncome: ${data.isIncome}, 
@@ -73,7 +74,6 @@ export default async function handler(req, res) {
         res.status(400).json({"message": "Bad Method"});
       }
     }catch(e){
-      console.log("Error in add transaction: ", e);
       res.status(500).json({"message" : "Your Request can't be processed."});
     }
   }

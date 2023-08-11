@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "../../../styles/Home.module.css";
 import formStyle from "../../../styles/RegForm.module.css";
+import { useSession } from "next-auth/react" 
 
 export default function FinanceDataEntry(props) {
   const [name, setName] = useState("");
@@ -10,7 +11,7 @@ export default function FinanceDataEntry(props) {
   const [description, setDescription] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [isExpense, setIsExpense] = useState("true");
-  
+  const { data:session } = useSession({ required: true, });
 
   async function addTransaction(data) {
     const response = await fetch("/api/hygraph/addtransaction", {
@@ -55,6 +56,7 @@ export default function FinanceDataEntry(props) {
         amount: parseFloat(amount),
         description,
         category: categoryId,
+        userId: session.user.userId,
         isIncome: isExpense === "false" ? true : false,
       };
 

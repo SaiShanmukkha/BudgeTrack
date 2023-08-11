@@ -8,7 +8,7 @@ import Head from "next/head"
 import { useState, useEffect } from "react"
 
 export default function Login(){
-    const { data: session, status} = useSession();
+    const { status} = useSession();
     const router = useRouter();
     const [siForm, setSiForm] = useState({
         email: "",
@@ -18,7 +18,7 @@ export default function Login(){
     useEffect(() => {
         if (status === "authenticated") {
             router.push("/home",)
-            toast.success("Logged in. Redirecting to home page.")
+            toast.success("Redirecting to home page.")
         }
     }, [status]);
 

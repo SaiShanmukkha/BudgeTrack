@@ -8,7 +8,14 @@ export default function DataTable(props){
         curveType: "function",
         allowHtml: true,
         cssClassNames:{
-            headerRow: `${styles.headerRow}`,
+          headerRow: `${styles.headerRow}`,
+          tableRow: `${styles.tableRow}`,
+          oddTableRow: `${styles.oddTableRow}`,
+          selectedTableRow: `${styles.selectedTableRow}`,
+          hoverTableRow: `${styles.hoverTableRow}`,
+          headerCell: `${styles.headerCell}`,
+          tableCell: `${styles.tableCell}`,
+          rowNumberCell: `${styles.rowNumberCell}`
         },
         width: "100%",
         frozenColumns: 3,

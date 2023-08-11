@@ -58,25 +58,41 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   session:{
     strategy: "jwt",
+    maxAge: 1 * 60 * 60,
   },
   debug: process.env.NODE_ENV === "development",
   pages: {
     signIn: '/auth/login',
   },
-  // callbacks: {
-  //   async signIn({ user, account, profile, email, credentials }) {
-  //     return true
-  //   },
-  //   async redirect({ url, baseUrl }) {
-  //     return baseUrl
-  //   },
-  //   async session({ session, user, token }) {
-  //     return session
-  //   },
-  //   async jwt({ token, user, account, profile, isNewUser }) {
-  //     return token
-  //   },
-  // }
+  jwt: {
+    encryption: true,
+  },
+  callbacks: {
+    async jwt({ token, user, account, profile, isNewUser }) {
+      token.isNewUser = isNewUser;
+      if(account){
+        if(account.type === "credentials"){
+          if(user){
+            token.userId = user.id;
+            token.emailVerified = user.emailVerified;
+          }
+        }else if(account.type === "oauth"){
+          if(user){
+            token.userId = user.id;
+          }
+          if(profile){
+            token.emailVerified = profile.email_verified;
+          }
+        }
+      }
+      return token;
+    },
+    async session({ session, user, token }) {
+      session.user.userId = token.userId;
+      session.user.emailVerified = token.emailVerified;
+      return session;
+    },
+  }
 }
 
 const handler = NextAuth(authOptions)
