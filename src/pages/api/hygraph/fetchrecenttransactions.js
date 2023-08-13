@@ -18,6 +18,7 @@ export default async function handler(req, res) {
                   categoryName
                 }
                 financeName
+                description
                 id
                 isIncome
               }

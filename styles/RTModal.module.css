@@ -1,5 +1,42 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(25, 3, 47, 0.5);
+    z-index: 1000;
+}
+
 .rtModal{
-    position: relative;
-    z-index: 10;
-    
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    border-radius: 10px;
+    box-shadow: -5px 5px 5px 0px rgb(127, 55, 194);
+    border: 2px solid rgb(127, 55, 194);
+    left: 50%;
+    min-width: 400px;
+    min-height: 200px;
+    transform: translate(-50%, -50%);
+    background-color: rgb(236, 235, 235);
+}
+
+.rtModalContent{
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    margin: 3rem 0.5rem 0.5rem 0.5rem;
+}
+
+.closeModalbtn{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin-right: 10px;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(49, 14, 82);
 }

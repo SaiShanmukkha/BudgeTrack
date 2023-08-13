@@ -1,0 +1,63 @@
+.rtModalHeader{
+    color: var(--form-input-color);
+    margin: 0.5rem 0  ;
+}
+
+.rtModelFormField{
+    margin: 0.5rem;
+}
+
+.rtModelFormField label{
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0.2rem 0;
+}
+
+.rtModelFormField input{
+    width: 100%;
+    padding: 5px;
+    font-size: 1.1rem;
+    color: var(--form-input-color);
+    font-weight: 600;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.rtModelFormBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.editBtn{
+    border: 2px solid blue;
+    padding: 0.5rem 2rem;
+    font-weight: 700;
+    color: blue;
+    border-radius: 10px;
+}
+
+.editBtn:hover{
+    background-color: blue;
+    color: white;
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+.deleteBtn{
+    border: 2px solid red;
+    padding: 0.5rem 2rem;
+    font-weight: 700;
+    color: red;
+    border-radius: 10px;
+}
+
+.deleteBtn:hover{
+    background-color: red;
+    color: white;
+    transition: all 0.2s linear;
+    cursor: pointer;
+}

@@ -28,29 +28,29 @@ export default function Index() {
                 <h1>Accessible expense reports.</h1>
                 <h1>Designed for sharing.</h1>
                 <div className={styles.aboutContainer}>
-                  <card className={styles.aboutCard}>
+                  <div className={styles.aboutCard}>
                     <div className={styles.cardIcon}>
                       <Image alt={"keep tabs on finances"} src={"/favicon.ico"} width={40} height={40} />
                     </div>
                     <h3>Get a quick overview</h3>
                     <p>Get a quick overview of your spending habits, track income, and stay in control of your budget—all in one place.</p>
-                  </card>
+                  </div>
 
-                  <card className={styles.aboutCard}>
+                  <div className={styles.aboutCard}>
                     <div className={styles.cardIcon}>
                       <Image alt={"keep tabs on finances"} src={"/favicon.ico"} width={40} height={40} />
                     </div>
                     <h3>Keep tabs on your finances</h3>
                     <p>Make smarter decisions with instant access to key financials including income, expenses, outstanding invoices, and more.</p>
-                  </card>
+                  </div>
 
-                  <card className={styles.aboutCard}>
+                  <div className={styles.aboutCard}>
                     <div className={styles.cardIcon}>
                       <Image alt={"keep tabs on finances"} src={"/favicon.ico"} width={40} height={40} />
                     </div>
                     <h3>See and Share</h3>
                     <p>Instantly see how you’re doing with profit & loss reports. Share them with your accountant for a better picture of your work.</p>
-                  </card>
+                  </div>
                 </div>
             </div>
 
@@ -66,20 +66,20 @@ export default function Index() {
               <h1>Safe, secure &amp; ad-free</h1>
 
               <div className={styles.featureCards}>
-                <card className={styles.featureCard}>
+                <div className={styles.featureCard}>
                   <h3>Safe</h3>
                   <p>BudgeTrack uses robust authentication mechanisms to prevent unauthorized access.</p>
-                </card>
+                </div>
 
-                <card className={styles.featureCard}>
+                <div className={styles.featureCard}>
                   <h3>Bank-grade security</h3>
                   <p>BudgeTrack protects your data with robust 256-bit excryption.</p>
-                </card>
+                </div>
 
-                <card className={styles.featureCard}>
+                <div className={styles.featureCard}>
                   <h3>Won&apos;t sell your data</h3>
                   <p>Privacy matters. We’re ad-free, and we’ll never sell your data.</p>
-                </card>
+                </div>
               </div>
             </div>
         </main>

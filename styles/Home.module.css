@@ -28,10 +28,17 @@
 
 .rtItem{
     display: flex;
+    cursor: pointer;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 2px;
     margin: 10px 0px;
+}
+
+.rtItem:hover{
+    background-color: rgb(232, 213, 250);
+    transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .rtItemHeader{
@@ -66,6 +73,10 @@
     font-size: small;
     font-weight: 600;
     color: rgb(96, 94, 94);
+}
+
+.rtItem:hover .rtItemDetail p{
+    color: black;
 }
 
 .rtItemIcon{
