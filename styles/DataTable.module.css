@@ -21,7 +21,7 @@
 
 .selectedTableRow{
     background-color: rgb(220, 200, 239);
-    font-weight: 500;
+    /* font-weight: 500; */
 }
 
 .hoverTableRow{

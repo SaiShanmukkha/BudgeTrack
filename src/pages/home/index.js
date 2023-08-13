@@ -6,7 +6,7 @@ import RecentTransactions from "@/src/components/DashBoard/RecentTransactions"
 import CategoriesData from "@/src/components/DashBoard/CategoriesData"
 import Subscriptions from "@/src/components/DashBoard/Subscriptions"
 import { useState, useEffect } from 'react';
-import { useSession } from "next-auth/react" 
+import { useSession } from "next-auth/react";
 
 export default function Home() {   
   const [loading, setLoading] = useState(true);
@@ -18,13 +18,18 @@ export default function Home() {
 
   useEffect(() => {
     setTimeout(()=>{
-        fetch("/api/hygraph/fetchcategories")
-        .then((response) => response.json())
-        .then((data) => {
-          if(data["message"] == undefined) {
-            setCategories(data.categories);
-          }
-        });
+        if(localStorage.getItem("categories") === null){
+          fetch("/api/hygraph/fetchcategories")
+          .then((response) => response.json())
+          .then((data) => {
+            if(data["message"] == undefined) {
+              setCategories(data.categories);
+              localStorage.setItem("categories", JSON.stringify(data.categories))
+            }
+          });
+        }else{
+          setCategories(JSON.parse(localStorage.getItem("categories")))
+        }
 
         fetch('/api/hygraph/fetchrecenttransactions', { 
           method: "POST",

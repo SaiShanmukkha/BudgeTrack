@@ -6,9 +6,6 @@ export default function Subscriptions(props){
     return (
         <div className={styles.SubscriptionsDataCard}>
             <h2>Subscriptions</h2>
-            <div className={styles.addSub}>
-                <button>*</button>
-            </div>
             {
                 props.loading ? <Loader /> : (props.subscriptions.length > 0 ? 
                 <div className={styles.SubscriptionsDataCardBody}>
