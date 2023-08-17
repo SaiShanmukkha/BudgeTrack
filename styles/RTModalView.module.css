@@ -42,6 +42,26 @@
     background-color: white !important;
 }
 
+.rtModelFormField select{
+    border: 2px solid blueviolet !important;
+    background-color: white !important;
+    width: 100%;
+    color: var(--form-input-color);
+    padding: 0.5rem 0;
+    font-weight: 700;
+}
+
+.valueDisplayTagP{
+    width: 100%;
+    padding: 5px;
+    font-size: 1.1rem;
+    color: var(--form-input-color);
+    font-weight: 600;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
 .rtModelFormBtns{
     display: flex;
     flex-direction: row;

@@ -11,7 +11,6 @@ export default function RecentTransactions(props) {
   const handleClick = (transaction) => {
     setShowModal(true);
     clicked_transaction.current = transaction;
-    console.log(clicked_transaction.current);
   }
   
   return (
@@ -19,7 +18,7 @@ export default function RecentTransactions(props) {
         <div className={styles.rtItemHeader}>
             <h2>Recent Transactions</h2>
         </div>
-        {showModal && <RtModalView transaction={clicked_transaction.current} showModal={showModal} setShowModal={setShowModal} />}
+        {showModal && <RtModalView setReload={props.setReload} categories={props.categories} transaction={clicked_transaction.current} showModal={showModal} setShowModal={setShowModal} />}
         <div className={styles.rtItemtrasactions}>
           {
             props.loading ? <Loader /> : props.recentTransactions.length > 0 ? props.recentTransactions.map((transaction)=>{
@@ -28,7 +27,7 @@ export default function RecentTransactions(props) {
               }}>
                           <div className={styles.rtItemDetail}>
                               <div className={`${styles.rtItemIcon}`} >{transaction.isIncome?categoryIcons["income"]:categoryIcons[transaction.categoryName.categoryName]}</div>
-                              <p>{new Date(transaction.createdAt).toISOString().substring(0, 10)}</p>
+                              <p>{new Date(transaction.financeDate).toISOString().substring(0, 10)}</p>
                               <p>{transaction.financeName}</p>
                           </div>
                           <p className={styles.rtItemValue} style={{'color':transaction.isIncome?'green':'red'}}>{transaction.isIncome?"+$":"-$"}{transaction.amount}</p>

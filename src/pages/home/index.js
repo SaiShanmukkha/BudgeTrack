@@ -18,17 +18,17 @@ export default function Home() {
 
   useEffect(() => {
     setTimeout(()=>{
-        if(localStorage.getItem("categories") === null){
+        if(sessionStorage.getItem("categories") === null){
           fetch("/api/hygraph/fetchcategories")
           .then((response) => response.json())
           .then((data) => {
-            if(data["message"] == undefined) {
+            if(data["message"] === undefined) {
               setCategories(data.categories);
-              localStorage.setItem("categories", JSON.stringify(data.categories))
+              sessionStorage.setItem("categories", JSON.stringify(data.categories))
             }
           });
         }else{
-          setCategories(JSON.parse(localStorage.getItem("categories")))
+          setCategories(JSON.parse(sessionStorage.getItem("categories")))
         }
 
         fetch('/api/hygraph/fetchrecenttransactions', { 
@@ -83,7 +83,7 @@ export default function Home() {
         <main className={common.mainContent}>
           <div className={styles.sectionOne}>
               <FinanceDataEntry categories={categories} setReload={setReload} />
-              <RecentTransactions recentTransactions={recentTransactions} loading={loading} />
+              <RecentTransactions setReload={setReload} categories={categories} recentTransactions={recentTransactions} loading={loading} />
           </div>
 
           <div className={styles.sectionTwo}>

@@ -14,8 +14,10 @@ export default async function handler(req, res) {
               finances(where: {userId: "${data.userId}"}, orderBy: createdAt_ASC, last: 9) {
                 amount
                 createdAt
+                financeDate
                 categoryName {
                   categoryName
+                  id
                 }
                 financeName
                 description

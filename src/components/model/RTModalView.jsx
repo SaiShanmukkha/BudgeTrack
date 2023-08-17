@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
 import styles from "../../../styles/RTModalView.module.css"
+import { toast } from "react-toastify";
 
-export default function RtModalView({ transaction, showModal, setShowModal }) {
-  const [tForm, setTForm] = useState({...transaction});
+export default function RtModalView({ setReload, transaction, showModal, setShowModal, categories }) {
+  const [tForm, setTForm] = useState({
+    amount:transaction.amount,
+    category:transaction.categoryName.id,
+    createdAt:(transaction.createdAt).substring(0,10),
+    description:transaction.description,
+    financeDate: (transaction.financeDate).substring(0,10),
+    financeName:transaction.financeName,
+    id:transaction.id,
+    isIncome:transaction.isIncome
+  });
+
   const [editable, setEditable] = useState(false);
+
   useEffect(()=>{
     if (!transaction) return null;
     return ()=>{};
@@ -12,14 +24,71 @@ export default function RtModalView({ transaction, showModal, setShowModal }) {
 
   const handleUpdate = (e)=>{
     e.preventDefault();
-    setEditable(false);
+    if(transaction.amount != tForm.amount || (transaction.financeDate).substring(0,10) != tForm.financeDate || transaction.categoryName.id != tForm.category || transaction.financeName != tForm.financeName || transaction.isIncome != tForm.isIncome || transaction.description != tForm.description){
+      fetch('/api/hygraph/updatetransaction', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+          {
+            amount:parseFloat(tForm.amount),
+            category:tForm.category,
+            createdAt:(transaction.createdAt).substring(0,10),
+            description:tForm.description,
+            financeDate: tForm.financeDate,
+            financeName:tForm.financeName,
+            id:tForm.id,
+            isIncome:(tForm.isIncome)=== "false" ? true : false
+          }
+        )
+      })
+      .then((resposnse)=>{
+        if(resposnse.ok){
+          toast.success("Updated transaction successfully.");
+          setShowModal(false);
+          setEditable(false);
+          setReload(true);
+        }else{
+          toast.error("Failed to update transaction.");
+        }
+      }).catch((e)=>{
+        toast.error("Failed to update transaction.");
+      });
+    }else{
+      toast.info("Nothing to update.");
+    }
+  }
+
+  const handleDelete = (e, id)=>{
+    e.preventDefault();
+
+    if(confirm('Are you sure you want to delete')){
+      fetch('/api/hygraph/deletetransaction', { 
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id
+        })
+      })
+      .then((resposnse)=>{
+        if(resposnse.ok){
+          toast.success("Deleted transaction successfully");
+          setShowModal(false);
+          setReload(true);
+        }else{
+          new Error("Failed to delete transaction");
+        }
+      }).catch((e)=>{
+        toast.error("Failed to delete");
+      })
+    }
   }
 
   const handleCancelUpdate = (e) =>{
     e.preventDefault();
-    if(tForm != transaction){
-      confirm("Are you sure you want to cancel?");
-    }
     setEditable(false);
   }
 
@@ -29,27 +98,63 @@ export default function RtModalView({ transaction, showModal, setShowModal }) {
       <form>
         <div className={styles.rtModelFormField}>
           <label>Finance Name</label>
-          <input type="text" onChange={(e)=>{setTForm({...tForm, financeName:e.target.value})}} className={editable ? styles.editableInputField : ""} value={tForm.financeName} readOnly={editable ? false:true} />
+          <input required type="text" onChange={(e)=>{setTForm({...tForm, financeName:e.target.value})}} className={editable ? styles.editableInputField : ""} value={tForm.financeName} readOnly={editable ? false:true} />
         </div>
         <div className={styles.rtModelFormField}>
-          <label>Date</label>
-          <input type="date" onChange={(e)=>{setTForm(transaction.createdAt=e.target.value)}} className={editable ? styles.editableInputField : ""} value={tForm.createdAt} readOnly={editable ? false:true} />
+          <label>Finance Date</label>
+          <input required type="date" onChange={(e)=>{setTForm({...tForm, financeDate:e.target.value})}} className={editable ? styles.editableInputField : ""} value={tForm.financeDate} readOnly={editable ? false:true} />
+        </div>
+        <div className={styles.rtModelFormField}>
+          <label>Creation Date</label>
+          <input required type="date" value={tForm.createdAt} readOnly />
         </div>
         <div className={styles.rtModelFormField}>
           <label>Amount</label>
-          <input type="number" onChange={(e)=>{setTForm(transaction.amount=e.target.value)}} className={editable ? styles.editableInputField : ""} value={tForm.amount} readOnly={editable ? false:true} />
+          <input required type="number" onChange={(e)=>{setTForm({...tForm, amount:e.target.value})}} className={editable ? styles.editableInputField : ""} value={tForm.amount} readOnly={editable ? false:true} />
         </div>
         <div className={styles.rtModelFormField}>
           <label>Is Income</label>
-          <input onChange={()=>{}} value={tForm.isIncome ? "Yes" : "No"} readOnly />
+          <p hidden={editable ? true:false} className={styles.valueDisplayTagP} >{tForm.isIncome ? "Yes" : "No"}</p>
+          <select
+            required
+            value={tForm.isIncome}
+            hidden={editable ? false:true}
+            onChange={(e) => setTForm({...tForm, isIncome: e.target.value, category: "clhk4hvpb33he0blfi6uv8edm"})}
+          >
+            <option value={"false"}>
+              Expense
+            </option>
+            <option value={"true"}>
+              Income
+            </option>
+          </select>
         </div>
         <div className={styles.rtModelFormField}>
           <label>Category</label>
-          <input onChange={()=>{}} value={tForm.categoryName.categoryName} readOnly />
+          <p hidden={editable ? true:false} className={styles.valueDisplayTagP} >{tForm.category}</p>
+          <select
+            value={tForm.category}
+            required
+            id="category"
+            disabled={tForm.isIncome=="true"?true:false}
+            hidden={editable ? false:true}
+            name="category"
+            onChange={(e) => setTForm({...tForm, category:e.target.value})}
+          >
+            {categories != null
+              ? categories.map((cat) => {
+                  return (
+                    <option value={cat.id} key={cat.id} defaultChecked={cat.categoryName.id==tForm.category?true:false}>
+                      {cat.categoryName}
+                    </option>
+                  );
+                })
+              : null}
+          </select>
         </div>
         <div className={styles.rtModelFormField}>
           <label>Description</label>
-          <textarea onChange={(e)=>{setTForm(transaction.description=e.target.value)}} className={editable ? styles.editableInputField : ""} value={tForm.description} readOnly={editable ? false:true} />
+          <textarea onChange={(e)=>{setTForm({...tForm, description:e.target.value})}} className={editable ? styles.editableInputField : ""} value={tForm.description} readOnly={editable ? false:true} />
         </div>
       </form>
       <div className={styles.rtModelFormBtns}>
@@ -60,7 +165,7 @@ export default function RtModalView({ transaction, showModal, setShowModal }) {
         </> :
         <>
           <button onClick={()=>setEditable(true)} className={styles.editBtn}>Edit</button>
-          <button onClick={()=>{setEditable(false);setShowModal(false); }} className={styles.deleteBtn}>Delete</button>
+          <button onClick={(e)=>{handleDelete(e, tForm.id)}} className={styles.deleteBtn}>Delete</button>
         </>}
       </div>
     </Modal>
