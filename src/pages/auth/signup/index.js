@@ -1,12 +1,13 @@
 import styles from "../../../../styles/SignUp.module.css"
 import common from "../../../../styles/Common.module.css"
 import Link from "next/link"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { signIn } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react"
 
 export default function SignUp(){
     const router = useRouter();
@@ -16,6 +17,15 @@ export default function SignUp(){
         password:"",
         confirmPassword: ""
     });
+
+    const { status} = useSession();
+
+    useEffect(() => {
+        if (status === "authenticated") {
+            router.push("/home",)
+            toast.success("Redirecting to home page.")
+        }
+    }, [status]);
 
     const registerUser = async (e)=>{
         e.preventDefault();
