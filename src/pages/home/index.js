@@ -2,6 +2,7 @@ import Head from 'next/head'
 import common from '@/styles/Common.module.css'
 import styles from "@/styles/Home.module.css"
 import FinanceDataEntry from "@/src/components/DashBoard/FinanceDataEntry"
+import SubscriptionDataEntry from "@/src/components/DashBoard/SubscriptionDataEntry"
 import RecentTransactions from "@/src/components/DashBoard/RecentTransactions"
 import CategoriesData from "@/src/components/DashBoard/CategoriesData"
 import Subscriptions from "@/src/components/DashBoard/Subscriptions"

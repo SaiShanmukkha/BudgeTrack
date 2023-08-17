@@ -86,7 +86,7 @@ export default function SignUp(){
 
                         <div className={styles.socialAuth}>
                             <p>---------- or register using below options --------</p>
-                            <button className={`${styles.socialBtn} ${styles.googleBtn}`} onclick={()=>{signIn("google")}} >Google</button>
+                            <button className={`${styles.socialBtn} ${styles.googleBtn}`} onClick={()=>{signIn("google")}} >Google</button>
                             <button className={`${styles.socialBtn} ${styles.githubBtn}`} onClick={()=>{signIn("github")}} >Github</button>
                         </div>
 
