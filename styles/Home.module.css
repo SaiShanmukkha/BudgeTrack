@@ -6,8 +6,8 @@
 
 .sectionTwo{
     display: grid;
-    /* grid-template-columns: 3fr 4fr; */
     grid-template-columns: 1fr;
+    transition: all 0.2s ease-in-out;
 }
 
 /* Recent Transactions */
@@ -174,7 +174,6 @@
     margin: 5px 2px;
     padding: 15px;
     overflow: hidden;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
 .edCardHeader{

@@ -14,10 +14,12 @@ import { useSession } from "next-auth/react"
 export default function Overview() {
   
   const date = new Date();
+  
   const [loading, setLoading] = useState(true);  
   const [month, setMonth] = useState(`0${date.getMonth() + 1}`);
   const [year, setYear] = useState(date.getFullYear());
   const [analyticsData, setAnalyticsData] = useState({});
+
   const { data:session } = useSession({required:true});
 
   let years_data = [];

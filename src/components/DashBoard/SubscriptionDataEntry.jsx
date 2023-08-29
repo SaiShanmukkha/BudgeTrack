@@ -1,25 +1,26 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "../../../styles/Home.module.css";
-import formStyle from "../../../styles/RegForm.module.css";
+import formStyle from "../../../styles/SubForm.module.css";
 import { useSession } from "next-auth/react" 
 
 export default function SubscriptionDataEntry(props) {
   const [sData, setSData] = useState({
     name: "",
-    amount: 0.00,
-    date: new Date().toISOString().split("T")[0],
+    amount: "",
+    startDate: new Date().toISOString().split("T")[0],
     description: "",
-
+    renewalPeriod: "",
+    plan: "",
+    isCustom: false,
+    customDays: "",
   });
-
-
   const { data:session } = useSession({ required: true, });
   const renewal_periods = ["daily", "weekly", "monthly", "Quaterly", "Half Yearly", "anually", "Custom"];
   
   
-  async function addTransaction(data) {
-    const response = await fetch("/api/hygraph/addtransaction", {
+  async function addSubscription(data) {
+    const response = await fetch("/api/hygraph/addsubscription", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,13 +38,15 @@ export default function SubscriptionDataEntry(props) {
   }
 
   function validateForm() {
+    console.log(sData);
     if (
-      name.trim() != "" &&
-      amount.trim() != "" &&
-      description.trim() != "" &&
-      categoryId != ""
+      sData.name.trim() != "" &&
+      sData.amount.trim() != "" &&
+      sData.description.trim() != "" &&
+      sData.plan.trim() != "" &&
+      sData.renewalPeriod != "" 
     ) {
-      if (parseFloat(amount) > 0) {
+      if (parseFloat(sData.amount) > 0) {
         return true;
       } else {
         return false;
@@ -56,129 +59,138 @@ export default function SubscriptionDataEntry(props) {
     event.preventDefault();
     if (validateForm()) {
       const data = {
-        name,
-        date,
-        amount: parseFloat(amount),
-        description,
-        category: categoryId,
+        price: parseFloat(sData.amount),
+        title: sData.name,
+        renewal: sData.renewalPeriod,
+        description: sData.description,
+        plan: sData.plan,
         userId: session.user.userId,
-        isIncome: isExpense === "false" ? true : false,
+        customDays: sData.isCustom?parseInt(sData.customDays): 0,
       };
-
-      // Add Transaction
-      if (addTransaction(data)) {
+      console.log(data);
+      // Add Subscription
+      if (addSubscription(data)) {
         const setR = props.setReload;
         setR(true);
-        setAmount("");
-        setCategoryId("");
-        setDescription("");
-        setName("");
-        setDate(new Date().toISOString().split("T")[0]);
+        setSData({
+          name: "",
+          amount: 0.00,
+          startDate: new Date().toISOString().split("T")[0],
+          description: "",
+          renewalPeriod: "",
+          plan: "",
+          isCustom: false,
+          customDays: 0
+        })
       }
     } else {
-      toast.error("Enter Valid Data");
+      toast.error("Please Enter Valid Data");
     }
   };
 
   return (
     <div className={styles.edCard}>
       <div className={styles.edCardHeader}>
-        <h2>Subscription Form</h2>
+        <h3>Subscription Form</h3>
       </div>
 
       <div className={formStyle.edForm}>
         <form onSubmit={handleSubmit}>
-          <div className={formStyle.flexGroup}>
-            <div className={formStyle.expenseCategory}>
-            <label htmlFor="category">Renewal Period</label>
-            <select>
-                <option value={""} disabled defaultChecked>
-                -- Select period --
-                </option>
-                {renewal_periods.map((ele, idx) => {
-                    return (
-                        <option value={ele} key={idx}>
-                        {ele}
-                        </option>
-                    );
-                    })}
-            </select>
-            </div>
-            <div className={formStyle.expenseName}>
-                <label htmlFor="name">Custom Renewal Days</label>
-                <input
-                value={sData.name}
-                type={"number"}
-                required
-                />
-            </div>
-          </div>
 
           <div className={formStyle.flexGroup}>
-            <div className={formStyle.expenseName}>
+            <div className={formStyle.formElement}>
                 <label htmlFor="name">Name</label>
                 <input
+                value={sData.name}
+                onChange={(e)=>setSData({...sData, name: e.target.value})}
                 type={"text"}
+                placeholder={"Subscription Name"}
                 required
                 />
             </div>
 
-            <div className={formStyle.expenseName}>
+            <div className={formStyle.formElement}>
                 <label htmlFor="name">Plan</label>
                 <input
                 type={"text"}
+                value={sData.plan}
+                onChange={(e)=>setSData({...sData,plan:e.target.value})}
+                placeholder="Premium or Basic"
                 required
                 />
             </div>
           </div>
 
-          <div className={formStyle.flexGroup}>
-            <div className={formStyle.financeAmount}>
+          <div className={formStyle.flexGroupOne}>
+            <div className={formStyle.formElement}>
+              <label htmlFor="category">Renewal Period</label>
+              <select
+              value={sData.renewalPeriod}
+              onChange={(e)=>{
+                if(e.target.value === "Custom"){
+                  setSData({...sData, isCustom:true, renewalPeriod: e.target.value});
+                }else{
+                  setSData({...sData, isCustom: false, renewalPeriod: e.target.value});
+                }
+              }}
+              >
+                  <option value={""} disabled defaultChecked>
+                  -- Select period --
+                  </option>
+                  {renewal_periods.map((ele, idx) => {
+                      return (
+                          <option value={ele} key={idx}>
+                          {ele}
+                          </option>
+                      );
+                      })}
+              </select>
+            </div>
+
+            { sData.isCustom ? 
+            <div className={formStyle.formElement}>
+                <label htmlFor="name">Custom Days</label>
+                <input
+                type={"number"}
+                value={sData.customDays}
+                placeholder="0"
+                onChange={(e)=>setSData({...sData, customDays:e.target.value})}
+                required
+                />
+            </div> : <div className={formStyle.formElement}></div>}
+          </div>
+
+
+          <div className={formStyle.flexGroupOne}>
+
+            <div className={formStyle.formElement}>
+              <label htmlFor="date">Start Date</label>
+              <input
+                type="date"
+                value={sData.startDate}
+                onChange={(e)=>setSData({...sData, startDate: e.target.value})}
+                required
+              />
+            </div>
+            
+            <div className={formStyle.formElement}>
               <label htmlFor="amount">Amount</label>
               <input
                 type="number"
-                required
-              />
-            </div>
-
-            <div className={formStyle.financeAmount}>
-              <label htmlFor="date">Date</label>
-              <input
-                type="date"
+                value={sData.amount}
+                placeholder="0.00"
+                onChange={(e)=>setSData({...sData, amount: e.target.value})}
                 required
               />
             </div>
           </div>
 
-          <div className={formStyle.flexGroup}>
-            <div className={formStyle.financeAmount}>
-              <label htmlFor="date">Subscription Logo</label>
-              <select
-                required
-              >
-                <option value={""} disabled defaultChecked>
-                -- Select period --
-                </option>
-                {renewal_periods.map((ele, idx) => {
-                    return (
-                        <option value={ele} key={idx}>
-                        {ele}
-                        </option>
-                    );
-                })}
-            </select>
-            </div>
-            <div className={formStyle.financeAmount}>
-              <input
-                type="image"
-                required
-              />
-            </div>
-          </div>
-
-          <div className={formStyle.expenseDescription}>
+          <div className={formStyle.formElement}>
             <label htmlFor="description">Description</label>
             <textarea
+              value={sData.description}
+              onChange={(e)=>setSData({...sData, description:e.target.value})}
+              placeholder="describe about subscription..."
               required
             ></textarea>
           </div>
@@ -186,7 +198,7 @@ export default function SubscriptionDataEntry(props) {
           <input
             type={"submit"}
             value="Save"
-            className={formStyle.expenseSubmit}
+            className={formStyle.submitBtn}
           />
         </form>
       </div>

@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import common from '@/styles/Common.module.css'
 import styles from "@/styles/Home.module.css"
-import FinanceDataEntry from "@/src/components/DashBoard/FinanceDataEntry"
-import SubscriptionDataEntry from "@/src/components/DashBoard/SubscriptionDataEntry"
 import RecentTransactions from "@/src/components/DashBoard/RecentTransactions"
 import CategoriesData from "@/src/components/DashBoard/CategoriesData"
 import Subscriptions from "@/src/components/DashBoard/Subscriptions"
 import { useState, useEffect } from 'react';
 import { useSession } from "next-auth/react";
+import EntryForms from '../../components/DashBoard/EntryForms'
 
 export default function Home() {   
   const [loading, setLoading] = useState(true);
@@ -66,9 +65,9 @@ export default function Home() {
         
         setLoading(false);
         setReload(false);
-      }, 2000);
+      }, 1500);
       return () => {};      
-    },[reload]);
+    },[reload, session.user.userId]);
     
      
   return (
@@ -83,10 +82,10 @@ export default function Home() {
 
         <main className={common.mainContent}>
           <div className={styles.sectionOne}>
-              <FinanceDataEntry categories={categories} setReload={setReload} />
+              <EntryForms setReload={setReload} categories={categories} />
               <RecentTransactions setReload={setReload} categories={categories} recentTransactions={recentTransactions} loading={loading} />
           </div>
-
+         
           <div className={styles.sectionTwo}>
             <CategoriesData loading={loading} categories={categories} />
             <Subscriptions loading={loading} subscriptions={subscriptions} />

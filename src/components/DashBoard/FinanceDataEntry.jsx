@@ -78,7 +78,7 @@ export default function FinanceDataEntry(props) {
   return (
     <div className={styles.edCard}>
       <div className={styles.edCardHeader}>
-        <h2>Transaction Form</h2>
+        <h3>Transaction Form</h3>
       </div>
 
       <div className={formStyle.edForm}>
@@ -137,6 +137,7 @@ export default function FinanceDataEntry(props) {
             <input
               value={name}
               type={"text"}
+              placeholder="Transaction Name"
               required
               id="name"
               name="name"
@@ -153,6 +154,7 @@ export default function FinanceDataEntry(props) {
                 type="number"
                 min={0}
                 step="0.01"
+                placeholder="0.00"
                 required
                 id="amount"
                 name="amount"
@@ -177,6 +179,7 @@ export default function FinanceDataEntry(props) {
             <label htmlFor="description">Description</label>
             <textarea
               value={description}
+              placeholder="describe about transaction..."
               required
               id="description"
               name="description"

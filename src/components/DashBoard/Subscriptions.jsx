@@ -1,5 +1,4 @@
 import styles from "@/styles/Subscriptions.module.css";
-import Image from "next/image";
 import Loader from "../../components/Loader"
 
 export default function Subscriptions(props){
@@ -14,7 +13,8 @@ export default function Subscriptions(props){
                             return (
                                 <div key={ele.id} className={styles.SubscriptionCardTile}>
                                     <div className={styles.SubscriptionCardTileHeader}>
-                                        <Image fill={true} alt={ele.title} src={ele.logo.url} className={styles.subscriptionImg} />
+                                        {/* <Image fill={true} alt={ele.title} src={ele.logo.url} className={styles.subscriptionImg} /> */}
+                                        <h1 className={styles.subscriptionTitle}>{ele.title}</h1>
                                         <p>$0.00</p>
                                     </div>
                                     <p>{ele.renewal} Renewal - {ele.plan} Plan</p>

@@ -1,5 +1,17 @@
+.flexGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 .edForm{
     display: inline;
+}
+
+.edForm input::placeholder, .edForm textarea::placeholder{
+    font-size: medium;
+    font-weight: 400;
+    color: rgb(143, 142, 141);
 }
 
 .financeType{
@@ -48,12 +60,6 @@
     border: 2px solid purple;
 }
 
-.flexGroup{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .financeAmount, .expenseCategory{
     width: 47%;
@@ -124,8 +130,8 @@
     padding: 0.2em;
     margin: 0.3em;
     padding: 0.2em;
-    max-height: 7rem;
-    height: 7rem;
+    max-height: 8rem;
+    height: 8rem;
     resize: vertical;
     width: 100%;
     border-radius: 0.5em;

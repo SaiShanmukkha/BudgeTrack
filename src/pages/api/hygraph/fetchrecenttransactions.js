@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           query: `
             query MyQuery {
-              finances(where: {userId: "${data.userId}"}, orderBy: createdAt_ASC, last: 9) {
+              finances(where: {userId: "${data.userId}"}, orderBy: createdAt_ASC, last: 10) {
                 amount
                 createdAt
                 financeDate

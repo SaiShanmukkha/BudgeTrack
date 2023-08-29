@@ -1,0 +1,89 @@
+.flexGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexGroupOne{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edForm{
+    display: inline;
+}
+
+.formElement{
+    width: 100%;
+    margin: 0.5rem 1rem 0rem 0rem;
+}
+
+.formElement label{
+    display: block;
+    font-size: large;
+    font-weight: 600;
+    margin: 0.2em;
+    color: rgb(119, 3, 187);
+}
+
+.formElement input {
+    display: block;
+    padding: 0.3em;
+    width: 100%;
+    margin: 0.2em 0;
+    font-weight: 600;
+    border-radius: 0.5em;
+    font-size: medium;
+    border: 2px solid purple;
+}
+
+.formElement input::placeholder, .formElement textarea::placeholder{
+    font-size: medium;
+    font-weight: 400;
+    color: rgb(143, 142, 141);
+}
+
+.formElement select {
+    display: block;
+    padding: 0.3em;
+    width: 100%;
+    font-weight: 600;
+    margin: 0.2em 0;
+    border-radius: 0.5em;
+    font-size: medium;
+    border: 2px solid purple;
+}
+
+.formElement textarea{
+    display: block;
+    padding: 0.3em;
+    font-weight: 600;
+    height: 8rem;
+    width: 98%;
+    margin: 0.2rem 0rem 0 0.2rem;
+    border-radius: 0.5em;
+    font-size: medium;
+    border: 2px solid purple;
+}
+
+.submitBtn{
+    border: 2px solid blueviolet;
+    background-color: rgb(161, 85, 232);
+    border-radius: 1em;
+    color: white;
+    padding: 0.5em 2em;
+    margin: 0.8em 0.2em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+    .flexGroup {
+        flex-direction: column;
+        width: 100%;
+    }
+
+}
