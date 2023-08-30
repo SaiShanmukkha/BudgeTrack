@@ -5,6 +5,7 @@ import formStyle from "../../../styles/SubForm.module.css";
 import { useSession } from "next-auth/react" 
 
 export default function SubscriptionDataEntry(props) {
+  const renewal_periods = ["daily", "weekly", "monthly", "Quaterly", "Half Yearly", "anually", "Custom"];
   const [sData, setSData] = useState({
     name: "",
     amount: "",
@@ -16,7 +17,6 @@ export default function SubscriptionDataEntry(props) {
     customDays: "",
   });
   const { data:session } = useSession({ required: true, });
-  const renewal_periods = ["daily", "weekly", "monthly", "Quaterly", "Half Yearly", "anually", "Custom"];
   
   
   async function addSubscription(data) {
@@ -134,16 +134,16 @@ export default function SubscriptionDataEntry(props) {
                 }
               }}
               >
-                  <option value={""} disabled defaultChecked>
-                  -- Select period --
-                  </option>
-                  {renewal_periods.map((ele, idx) => {
-                      return (
-                          <option value={ele} key={idx}>
-                          {ele}
-                          </option>
-                      );
-                      })}
+                <option value={""} disabled defaultChecked>
+                -- Select period --
+                </option>
+                {renewal_periods.map((ele, idx) => {
+                    return (
+                        <option value={ele} key={idx}>
+                        {ele}
+                        </option>
+                    );
+                    })}
               </select>
             </div>
 

@@ -145,7 +145,7 @@
 .expenseSubmit{
     border: 2px solid blueviolet;
     background-color: rgb(161, 85, 232);
-    border-radius: 1em;
+    border-radius: 10px;
     color: white;
     padding: 0.5em 2em;
     margin: 0.8em 0.2em;

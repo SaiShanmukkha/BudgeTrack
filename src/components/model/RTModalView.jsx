@@ -12,7 +12,8 @@ export default function RtModalView({ setReload, transaction, showModal, setShow
     financeDate: (transaction.financeDate).substring(0,10),
     financeName:transaction.financeName,
     id:transaction.id,
-    isIncome:transaction.isIncome
+    isIncome:transaction.isIncome,
+    editable: false,
   });
 
   const [editable, setEditable] = useState(false);

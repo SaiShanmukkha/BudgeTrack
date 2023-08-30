@@ -15,7 +15,7 @@ export default function Subscriptions(props){
                                     <div className={styles.SubscriptionCardTileHeader}>
                                         {/* <Image fill={true} alt={ele.title} src={ele.logo.url} className={styles.subscriptionImg} /> */}
                                         <h1 className={styles.subscriptionTitle}>{ele.title}</h1>
-                                        <p>$0.00</p>
+                                        <p>${ele.price}</p>
                                     </div>
                                     <p>{ele.renewal} Renewal - {ele.plan} Plan</p>
                                     <p>{ele.description}</p>

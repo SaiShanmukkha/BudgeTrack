@@ -5,12 +5,16 @@ import formStyle from "../../../styles/RegForm.module.css";
 import { useSession } from "next-auth/react" 
 
 export default function FinanceDataEntry(props) {
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
-  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-  const [description, setDescription] = useState("");
-  const [categoryId, setCategoryId] = useState("");
-  const [isExpense, setIsExpense] = useState("true");
+
+  const [tForm, setTForm] = useState({
+    name: "",
+    amount: "",
+    date: new Date().toISOString().split("T")[0],
+    description: "",
+    categoryId: "",
+    isExpense: "true",
+  });
+
   const { data:session } = useSession({ required: true, });
 
   async function addTransaction(data) {
@@ -33,12 +37,12 @@ export default function FinanceDataEntry(props) {
 
   function validateForm() {
     if (
-      name.trim() != "" &&
-      amount.trim() != "" &&
-      description.trim() != "" &&
-      categoryId != ""
+      tForm.name.trim() != "" &&
+      tForm.amount.trim() != "" &&
+      tForm.description.trim() != "" &&
+      tForm.categoryId != ""
     ) {
-      if (parseFloat(amount) > 0) {
+      if (parseFloat(tForm.amount) > 0) {
         return true;
       } else {
         return false;
@@ -51,24 +55,27 @@ export default function FinanceDataEntry(props) {
     event.preventDefault();
     if (validateForm()) {
       const data = {
-        name,
-        date,
-        amount: parseFloat(amount),
-        description,
-        category: categoryId,
+        name: tForm.name,
+        date: tForm.date,
+        amount: parseFloat(tForm.amount),
+        description: tForm.description,
+        category: tForm.categoryId,
         userId: session.user.userId,
-        isIncome: isExpense === "false" ? true : false,
+        isIncome: tForm.isExpense === "false" ? true : false,
       };
 
       // Add Transaction
       if (addTransaction(data)) {
         const setR = props.setReload;
         setR(true);
-        setAmount("");
-        setCategoryId("");
-        setDescription("");
-        setName("");
-        setDate(new Date().toISOString().split("T")[0]);
+        setTForm({
+          name: "",
+          amount: "",
+          date: new Date().toISOString().split("T")[0],
+          description: "",
+          categoryId: "",
+          isExpense: "true",
+        });
       }
     } else {
       toast.error("Enter Valid Data");
@@ -87,13 +94,12 @@ export default function FinanceDataEntry(props) {
             <div className={formStyle.financeType}>
               <label htmlFor="isExpense">Finance Record Type</label>
               <select
-                value={isExpense}
+                value={tForm.isExpense}
                 id="isExpense"
                 name="isExpense"
                 onChange={(e) => {
-                  setIsExpense(e.target.value);
                   // Defaulting to Other
-                  setCategoryId("clhk4hvpb33he0blfi6uv8edm");
+                  setTForm({...tForm, isExpense: e.target.value, categoryId: "clhk4hvpb33he0blfi6uv8edm"})
                 }}
               >
                 <option value={"true"} defaultChecked>
@@ -103,15 +109,15 @@ export default function FinanceDataEntry(props) {
               </select>
             </div>
 
-            {isExpense == "true" ? (
+            {tForm.isExpense == "true" ? (
               <div className={formStyle.expenseCategory}>
                 <label htmlFor="category">Category</label>
                 <select
-                  value={categoryId}
+                  value={tForm.categoryId}
                   required
                   id="category"
                   name="category"
-                  onChange={(e) => setCategoryId(e.target.value)}
+                  onChange={(e) => setTForm({...tForm, categoryId: e.target.value})}
                 >
                   <option value={""} disabled defaultChecked>
                     -- Select category --
@@ -135,14 +141,14 @@ export default function FinanceDataEntry(props) {
           <div className={formStyle.expenseName}>
             <label htmlFor="name">Name</label>
             <input
-              value={name}
+              value={tForm.name}
               type={"text"}
               placeholder="Transaction Name"
               required
               id="name"
               name="name"
               maxLength={60}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setTForm({...tForm, name: e.target.value})}
             />
           </div>
 
@@ -150,7 +156,7 @@ export default function FinanceDataEntry(props) {
             <div className={formStyle.financeAmount}>
               <label htmlFor="amount">Amount</label>
               <input
-                value={amount}
+                value={tForm.amount}
                 type="number"
                 min={0}
                 step="0.01"
@@ -158,19 +164,19 @@ export default function FinanceDataEntry(props) {
                 required
                 id="amount"
                 name="amount"
-                onChange={(e) => setAmount(e.target.value)}
+                onChange={(e) => setTForm({...tForm, amount: e.target.value})}
               />
             </div>
 
             <div className={formStyle.financeAmount}>
               <label htmlFor="date">Date</label>
               <input
-                value={date}
+                value={tForm.date}
                 type="date"
                 required
                 id="date"
                 name="date"
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) => setTForm({...tForm, date: e.target.value})}
               />
             </div>
           </div>
@@ -178,12 +184,12 @@ export default function FinanceDataEntry(props) {
           <div className={formStyle.expenseDescription}>
             <label htmlFor="description">Description</label>
             <textarea
-              value={description}
+              value={tForm.description}
               placeholder="describe about transaction..."
               required
               id="description"
               name="description"
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={(e) => setTForm({...tForm, description: e.target.value})}
             ></textarea>
           </div>
 
