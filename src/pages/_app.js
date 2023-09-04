@@ -5,19 +5,25 @@ import Notify from "../components/Notify"
 import { SessionProvider, useSession, signIn } from "next-auth/react"
 import common from "../../styles/Common.module.css"
 import Loader from '../components/Loader.jsx';
+import { SWRConfig } from 'swr'
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }) { 
   return (
     <SessionProvider session={session}>
-      <NavBar />
-      <Notify />
-      {Component.auth ? (
-        <Auth>
+      <SWRConfig value={{
+          revalidateIfStale: false,
+          revalidateOnFocus: false,
+        }}>
+        <NavBar />
+        <Notify />
+        {Component.auth ? (
+          <Auth>
+            <Component {...pageProps} />
+          </Auth> ):
           <Component {...pageProps} />
-        </Auth> ):
-        <Component {...pageProps} />
-      }
-      <FooBar />
+        }
+        <FooBar />
+      </SWRConfig>
     </SessionProvider>
   );
 }

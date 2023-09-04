@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import styles from "../../../styles/Home.module.css";
 import formStyle from "../../../styles/SubForm.module.css";
 import { useSession } from "next-auth/react" 
+import { useSubscriptions } from "../Utilities/useSubscriptions";
 
 export default function SubscriptionDataEntry(props) {
   const renewal_periods = ["daily", "weekly", "monthly", "Quaterly", "Half Yearly", "anually", "Custom"];
@@ -17,7 +18,7 @@ export default function SubscriptionDataEntry(props) {
     customDays: "",
   });
   const { data:session } = useSession({ required: true, });
-  
+  const { mutate } = useSubscriptions();
   
   async function addSubscription(data) {
     const response = await fetch("/api/hygraph/addsubscription", {
@@ -38,7 +39,6 @@ export default function SubscriptionDataEntry(props) {
   }
 
   function validateForm() {
-    console.log(sData);
     if (
       sData.name.trim() != "" &&
       sData.amount.trim() != "" &&
@@ -67,14 +67,13 @@ export default function SubscriptionDataEntry(props) {
         userId: session.user.userId,
         customDays: sData.isCustom?parseInt(sData.customDays): 0,
       };
-      console.log(data);
       // Add Subscription
       if (addSubscription(data)) {
-        const setR = props.setReload;
-        setR(true);
+        setTimeout(()=>mutate(true), 1500);
+        // mutate(true);
         setSData({
           name: "",
-          amount: 0.00,
+          amount: "",
           startDate: new Date().toISOString().split("T")[0],
           description: "",
           renewalPeriod: "",

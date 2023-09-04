@@ -43,10 +43,10 @@ export default async function handler(req, res) {
               categories_data.push(nd.node);
           }
         }else{
-          return res.status(400).json({"message":"Error Occurred while fetching categories."})
+          return res.status(400).json({message:"Error Occurred while fetching categories."})
         }
       }
-      return res.status(200).json({"categories": categories_data});
+      return res.status(200).json({categories:categories_data});
     } catch (e) {
       res.status(400).json({ message: "Bad Request" });
     }

@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       });
       const json = await response.json();
       if(response.ok){
-        return res.status(200).json(json.data.finances.reverse());
+        return res.status(200).json({ recentTransactions: json.data.finances.reverse() });
       }else{
         return res.status(400).json({"message":"Error Occurred while fetching transactions."})
       }

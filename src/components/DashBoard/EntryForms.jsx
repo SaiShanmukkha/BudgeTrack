@@ -12,8 +12,7 @@ function EntryForms(props) {
                 <button type="button" style={showTransactionForm ? {}: {backgroundColor: "purple", color: "white"}} onClick={()=>setShowTransactionForm(false)}>Add Subscription</button>
             </div>
             {
-                showTransactionForm ? <FinanceDataEntry categories={props.categories} setReload={props.setReload} /> :
-                <SubscriptionDataEntry setReload={props.setReload} />
+                showTransactionForm ? <FinanceDataEntry /> : <SubscriptionDataEntry />
             }
         </div>
     );

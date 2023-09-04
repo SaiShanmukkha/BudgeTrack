@@ -1,15 +1,17 @@
 import styles from "@/styles/Subscriptions.module.css";
 import Loader from "../../components/Loader"
+import { useSubscriptions } from "../Utilities/useSubscriptions";
 
-export default function Subscriptions(props){
+export default function Subscriptions(){
+    const subscriptionsInfo = useSubscriptions();
     return (
         <div className={styles.SubscriptionsDataCard}>
             <h2>Subscriptions</h2>
             {
-                props.loading ? <Loader /> : (props.subscriptions.length > 0 ? 
+                (subscriptionsInfo.isLoading) ? <Loader /> : (subscriptionsInfo.subscriptions.length > 0 ? 
                 <div className={styles.SubscriptionsDataCardBody}>
                     {
-                        props.subscriptions.map((ele)=>{
+                        subscriptionsInfo.subscriptions.map((ele)=>{
                             return (
                                 <div key={ele.id} className={styles.SubscriptionCardTile}>
                                     <div className={styles.SubscriptionCardTileHeader}>

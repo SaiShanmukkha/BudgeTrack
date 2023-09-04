@@ -15,20 +15,17 @@ export default async function handler(req, res) {
           body: JSON.stringify({
             query: `
             query MyQuery {
-                userSubscriptionsConnection(where: {userId: "${data.userId}"}) {
+                userSubscriptionsConnection(skip: ${currentIndex},where: {userId: "${data.userId}"}) {
                   edges {
                     node {
-                      description
                       id
+                      customDays
+                      description
+                      createdAt
                       plan
                       price
                       renewal
                       title
-                      logo {
-                        fileName
-                        id
-                        url
-                      }
                     }
                   }
                   pageInfo {
@@ -56,7 +53,7 @@ export default async function handler(req, res) {
           return res.status(400).json({"message":"Error Occurred while fetching subcriptions."})
         }
       }
-      return res.status(200).json({"subcriptions": subcriptions_data});
+      return res.status(200).json({"subscriptions": subcriptions_data});
     } catch (e) {
       res.status(400).json({ message: "Bad Request" });
     }

@@ -2,10 +2,14 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "../../../styles/Home.module.css";
 import formStyle from "../../../styles/RegForm.module.css";
-import { useSession } from "next-auth/react" 
+import { useSession } from "next-auth/react";
+import  { useCategories } from "../Utilities/useCategories";
+import  { useRecentTransactions } from "../Utilities/useRecentTransactions";
 
 export default function FinanceDataEntry(props) {
 
+  const { categories } = useCategories();
+  const { mutate } = useRecentTransactions();
   const [tForm, setTForm] = useState({
     name: "",
     amount: "",
@@ -66,8 +70,7 @@ export default function FinanceDataEntry(props) {
 
       // Add Transaction
       if (addTransaction(data)) {
-        const setR = props.setReload;
-        setR(true);
+        setTimeout(()=>mutate(true), 1500);
         setTForm({
           name: "",
           amount: "",
@@ -122,8 +125,8 @@ export default function FinanceDataEntry(props) {
                   <option value={""} disabled defaultChecked>
                     -- Select category --
                   </option>
-                  {props.categories != null
-                    ? props.categories.map((cat) => {
+                  {categories != null
+                    ? categories.map((cat) => {
                         return (
                           <option value={cat.id} key={cat.id}>
                             {cat.categoryName}
