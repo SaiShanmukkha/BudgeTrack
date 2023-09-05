@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import styles from "../../../styles/RTModalView.module.css"
 import { toast } from "react-toastify";
 
-export default function RtModalView({ setReload, transaction, showModal, setShowModal, categories }) {
+export default function RtModalView({ mutate, transaction, showModal, setShowModal, categories }) {
   const [tForm, setTForm] = useState({
     amount:transaction.amount,
     category:transaction.categoryName.id,
@@ -49,7 +49,7 @@ export default function RtModalView({ setReload, transaction, showModal, setShow
           toast.success("Updated transaction successfully.");
           setShowModal(false);
           setEditable(false);
-          setReload(true);
+          mutate(true);
         }else{
           toast.error("Failed to update transaction.");
         }
@@ -78,7 +78,7 @@ export default function RtModalView({ setReload, transaction, showModal, setShow
         if(resposnse.ok){
           toast.success("Deleted transaction successfully");
           setShowModal(false);
-          setReload(true);
+          mutate(true);
         }else{
           new Error("Failed to delete transaction");
         }

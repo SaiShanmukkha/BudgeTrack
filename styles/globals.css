@@ -11,10 +11,15 @@
 
 :root {
   --icon-background: rgb(119, 3, 187);
-  /* --icon-background: black; */
   --form-input-color: rgb(97, 0, 153);
   --icon-color: white;
   --global-background-color: rgb(255, 255, 255);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    --global-background-color: rgb(30, 28, 28);
+  }
 }
 
 a {

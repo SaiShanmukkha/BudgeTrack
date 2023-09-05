@@ -27,6 +27,7 @@ export default function RecentTransactions(props) {
           categories={categoriesInfo.categories}
           transaction={clicked_transaction.current}
           showModal={showModal}
+          mutate={recentTransactionsInfo.mutate}
           setShowModal={setShowModal}
         />
       )}
