@@ -21,7 +21,7 @@ export default function RtModalView({ mutate, transaction, showModal, setShowMod
   useEffect(()=>{
     if (!transaction) return null;
     return ()=>{};
-  }, []);
+  }, [transaction]);
 
   const handleUpdate = (e)=>{
     e.preventDefault();

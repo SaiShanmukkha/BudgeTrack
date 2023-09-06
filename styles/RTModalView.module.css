@@ -1,5 +1,5 @@
 .rtModalHeader{
-    color: var(--form-input-color);
+    color: var(--header-color);
     margin: 0.5rem 0  ;
 }
 
@@ -9,6 +9,7 @@
 
 .rtModelFormField label{
     display: block;
+    color: var(--modal-label-color);
     font-weight: 700;
     font-size: 1rem;
     margin: 0.2rem 0;
@@ -38,13 +39,13 @@
 }
 
 .editableInputField{
-    border: 2px solid blueviolet !important;
-    background-color: white !important;
+    border: 2px solid rgb(192, 43, 226) !important;
+    background-color: var(--input-background-color) !important;
 }
 
 .rtModelFormField select{
-    border: 2px solid blueviolet !important;
-    background-color: white !important;
+    border: 2px solid rgb(192, 43, 226) !important;
+    background-color: var(--input-background-color) !important;
     width: 100%;
     color: var(--form-input-color);
     padding: 0.5rem 0;

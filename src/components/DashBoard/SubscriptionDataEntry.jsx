@@ -70,7 +70,6 @@ export default function SubscriptionDataEntry(props) {
       // Add Subscription
       if (addSubscription(data)) {
         setTimeout(()=>mutate(true), 1500);
-        // mutate(true);
         setSData({
           name: "",
           amount: "",
@@ -90,7 +89,7 @@ export default function SubscriptionDataEntry(props) {
   return (
     <div className={styles.edCard}>
       <div className={styles.edCardHeader}>
-        <h3>Subscription Form</h3>
+        <h2>Subscription Form</h2>
       </div>
 
       <div className={formStyle.edForm}>

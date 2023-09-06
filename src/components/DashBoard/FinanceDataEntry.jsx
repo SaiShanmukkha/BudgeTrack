@@ -88,7 +88,7 @@ export default function FinanceDataEntry(props) {
   return (
     <div className={styles.edCard}>
       <div className={styles.edCardHeader}>
-        <h3>Transaction Form</h3>
+        <h2>Transaction Form</h2>
       </div>
 
       <div className={formStyle.edForm}>

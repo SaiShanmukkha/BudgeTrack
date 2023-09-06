@@ -10,17 +10,60 @@
 }
 
 :root {
+  --navbar-title: black;
+  --navbar-navitems: black;
+  --navbar-background-color: rgb(247, 240, 255);
   --icon-background: rgb(119, 3, 187);
   --form-input-color: rgb(97, 0, 153);
   --icon-color: white;
   --global-background-color: rgb(255, 255, 255);
+  --card-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  --card-background-color: white;
+  --header-color: rgb(68, 69, 69);
+  --rt-text-color: rgb(96, 94, 94);
+  --input-label-color: rgb(119, 3, 187);
+  --sb-text-color:rgb(55, 52, 52);
+  --modal-close-button: black;
+  --rt-hover-color: rgb(232, 213, 250);
+  --rt-text-hover-color: black;
+  --input-background-color: white;
+  --ct-hover-background-color:rgb(232, 213, 250);
+  --modal-label-color: rgb(35, 34, 34);
+  --border-color: black;
+  --dt-text-color: black;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root{
-    --global-background-color: rgb(30, 28, 28);
-  }
-} */
+[data-theme="dark"] {
+    --dt-text-color: white;
+    --border-color: rgb(94, 92, 92);
+    --modal-label-color: rgb(169, 21, 255);
+    --rt-hover-color: rgb(49, 36, 63);
+    --rt-text-hover-color: white;
+    --ct-hover-background-color:rgb(65, 48, 81);
+    --modal-close-button: white;
+    --navbar-title: white;
+    --navbar-navitems: white;
+    --navbar-background-color: black;
+    --card-box-shadow: 0 2px 4px 0 rgba(192, 192, 192, 0.2);
+    --global-background-color: black;
+    --card-background-color: rgb(26, 25, 25);
+    --header-color: white;
+    --form-input-color: rgb(244, 227, 253);
+    --rt-text-color: rgb(212, 206, 206);
+    --sb-text-color:rgb(201, 200, 200);
+    --input-background-color: black;
+    --input-text-color: rgb(219, 207, 207);
+    --input-label-color: rgb(160, 20, 240);
+}
+
+.themeIcon{
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+}
 
 a {
   color: inherit;

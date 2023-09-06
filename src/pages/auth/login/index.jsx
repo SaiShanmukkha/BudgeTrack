@@ -20,7 +20,7 @@ export default function Login(){
             router.push("/home",)
             toast.success("Redirecting to home page.")
         }
-    }, [status]);
+    }, [router, status]);
 
     const handleSignIn = async (e) => {
         e.preventDefault();

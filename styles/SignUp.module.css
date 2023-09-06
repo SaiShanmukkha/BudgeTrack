@@ -5,7 +5,7 @@
 }
 
 .welcomeHeader{
-    color: rgb(39, 89, 253);
+    color: rgb(217, 0, 255);
     margin: 1rem;
 }
 
@@ -14,6 +14,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
     text-align: center;
+    color: var(--rt-text-color);
     margin: 1rem;
 }
 
@@ -32,6 +33,7 @@
 .signupLink{
     font-family: Arial, Helvetica, sans-serif, Times, serif;
     margin: 1rem;
+    color: var(--rt-text-color);
     font-weight: 700;
 }
 
@@ -46,16 +48,19 @@
 .signUpFormContainer{
     padding: 1rem;
     border: 2px solid black;
+    border: 2px solid rgb(52, 52, 51);
     border-radius: 1rem;
     width: 80%;
     margin: auto;
     text-align: left;
+    box-shadow: var(--card-box-shadow);
 }
 
 
 .signUpFormHeader{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    color: var(--header-color);
     text-shadow: 2px 2px rgb(226, 229, 226);
     text-decoration: solid;
     text-align: center;
@@ -66,7 +71,7 @@
 }
 
 .formLabel{
-    color: rgb(64, 3, 129);
+    color: var(--input-label-color);
     font-weight: 700;
     display: block;
     margin: 0.4rem 0;
@@ -78,13 +83,14 @@
     border-radius: 0.4rem;
     font-weight: 600;
     padding: 0.2em;
-    color: rgb(54, 6, 80);
+    color: var(--form-input-color);
+    background-color: var(--global-background-color);
     margin: 0.4rem 0;
     border: 2px solid rgb(63, 1, 150);
 }
 
 .inputField:focus{
-    border: 2px solid orangered;
+    border: 2px solid rgb(238, 0, 255);
     outline: none;
 }
 
@@ -97,12 +103,12 @@
     margin: 0.5rem 0;
     border-radius: 0.5rem;
     cursor: pointer;
-    background-color: rgb(6, 53, 195);
+    background-color: rgb(217, 0, 255);
 }
 
 
 .signUpFormContainer hr {
-    background-color: rgb(63, 2, 129);
+    background-color: var(--header-color);
     height: 0.2rem;
     outline: none;
     border: none;
@@ -113,6 +119,7 @@
     text-align: center;
     font-weight: 600;
     margin: 1.5rem 0;
+    color: var(--rt-text-color);
 }
 
 .socialBtn{

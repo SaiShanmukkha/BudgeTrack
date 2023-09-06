@@ -1,30 +1,33 @@
 import '@/styles/globals.css'
 import NavBar from '../components/navbar.jsx';
 import FooBar from '@/src/components/FooBar';
-import Notify from "../components/Notify"
-import { SessionProvider, useSession, signIn } from "next-auth/react"
-import common from "../../styles/Common.module.css"
+import Notify from "../components/Notify";
+import { SessionProvider, useSession, signIn } from "next-auth/react";
+import common from "../../styles/Common.module.css";
 import Loader from '../components/Loader.jsx';
-import { SWRConfig } from 'swr'
+import { SWRConfig } from 'swr';
+import { ThemeProvider } from 'next-themes';
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }) { 
   return (
-    <SessionProvider session={session}>
-      <SWRConfig value={{
-          revalidateIfStale: false,
-          revalidateOnFocus: false,
-        }}>
-        <NavBar />
-        <Notify />
-        {Component.auth ? (
-          <Auth>
+    <ThemeProvider>
+      <SessionProvider session={session}>
+        <SWRConfig value={{
+            revalidateIfStale: false,
+            revalidateOnFocus: false,
+          }}>
+          <NavBar />
+          <Notify />
+          {Component.auth ? (
+            <Auth>
+              <Component {...pageProps} />
+            </Auth> ):
             <Component {...pageProps} />
-          </Auth> ):
-          <Component {...pageProps} />
-        }
-        <FooBar />
-      </SWRConfig>
-    </SessionProvider>
+          }
+          <FooBar />
+        </SWRConfig>
+      </SessionProvider>
+    </ThemeProvider>
   );
 }
 

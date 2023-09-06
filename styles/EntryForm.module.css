@@ -3,8 +3,8 @@
     margin: 0.2rem;
     border-radius: 10px;
     padding: 0.3rem;
-    background-color: white;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--card-background-color);
+    box-shadow: var(--card-box-shadow);
 }
 
 .btnHeader{

@@ -57,24 +57,20 @@
     border-radius: 10px;
     padding: 5px;
     font-size: medium;
-    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+    background-color: rgb(153, 0, 255);
     cursor: pointer;
 }
 
-.show_data:hover{
-    transition: all 0.2s linear;
-    color: rgb(255, 255, 255);
-    background-color: rgb(153, 0, 255);
-}
 
 
 .pieChart{
     border-radius: 10px;
     overflow: hidden;
     padding: 5px 0px;
-    background-color: white;
+    background-color: var(--card-background-color);
     margin: 5px 2px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--card-box-shadow);
 }
 
 .transaction_data{
@@ -90,6 +86,12 @@
     font-weight: 800;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
+}
+
+.selector select{
+    background-color: var(--global-background-color);
+    min-width: 100px;
+    color: var(--rt-text-color);
 }
 
 

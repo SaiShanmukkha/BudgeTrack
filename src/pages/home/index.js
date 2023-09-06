@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <div className={common.container}>
         <Head>
-          <title>BugeTrack | Home</title>
+          <title>BudgeTrack | Home</title>
           <meta name="description" content="Tracking All Finances at One Place" />
           <link rel="icon" href="/favicon.ico" />
         </Head>

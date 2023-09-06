@@ -31,6 +31,8 @@
     border-radius: 0.5em;
     font-size: medium;
     border: 2px solid purple;
+    color: var(--input-text-color);
+    background-color: var(--input-background-color);
 }
 
 .financeType label{
@@ -38,7 +40,7 @@
     font-size: large;
     font-weight: 600;
     margin: 0.2em;
-    color: rgb(119, 3, 187);
+    color: var(--input-label-color);
 }
 
 
@@ -47,16 +49,19 @@
     font-size: large;
     font-weight: 600;
     margin: 0.2em;
-    color: rgb(119, 3, 187);
+    color: var(--input-label-color);
 }
 
 .expenseName input{
     display: block;
     padding: 0.3em;
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
     width: 100%;
     margin: 0.2em;
     border-radius: 0.5em;
     font-size: medium;
+    font-weight: 600;
     border: 2px solid purple;
 }
 
@@ -70,7 +75,7 @@
     font-size: large;
     font-weight: 600;
     margin: 0.2em;
-    color: rgb(119, 3, 187);
+    color: var(--input-label-color);
 }
 
 .financeAmount input{
@@ -78,7 +83,8 @@
     padding: 0.3em;
     width: 100%;
     font-weight: bold;
-    color: rgb(63, 7, 116);
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
     margin: 0.2em;
     border-radius: 0.5em;
     font-size: medium;
@@ -90,20 +96,19 @@
     font-weight: 600;
     margin: 0.2em;
     margin: 0.2em;
-    color: rgb(119, 3, 187);
+    color: var(--input-label-color);
 }
 
 .expenseCategory select{
     padding: 0.3em;
     margin: 0.2em;
     border: 2px solid purple;
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
     width: 100%;
     border-radius: 0.5em;
     font-size: medium;
 }
-
-
-
 
 @media screen and (max-width: 720px) {
     .expenseCategory, .financeAmount{
@@ -120,12 +125,13 @@
     font-size: medium;
     font-weight: 600;
     margin: 5px;
-    color: rgb(119, 3, 187);
+    color: var(--input-label-color);
 }
 
 .expenseDescription textarea{
     display: block;
     border: 2px solid purple;
+    background-color: var(--input-background-color);
     width: 100%;
     padding: 0.2em;
     margin: 0.3em;
@@ -139,7 +145,7 @@
     font-family: 'Consolas';
     font-size: large;
     line-height: 1em;
-    color: rgb(65, 2, 65);
+    color: var(--input-text-color);
 }
 
 .expenseSubmit{

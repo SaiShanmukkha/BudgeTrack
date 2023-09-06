@@ -1,6 +1,6 @@
 .toCard{
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--card-background-color);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -8,7 +8,7 @@
     margin: 10px 2px;
     padding: 15px;
     overflow: hidden;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--card-box-shadow);
 }
 
 .toCard h2{
@@ -21,4 +21,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.toItem h4{
+    color: var(--header-color);
+}
+
+.toItemValue{
+    font-weight: 600;
+    font-size: larger;
+    color: var(--rt-text-color);
+    font-family: 'Roboto';
 }

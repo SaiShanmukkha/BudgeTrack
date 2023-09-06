@@ -7,9 +7,9 @@ export default function Index() {
   return (
     <>
       <div className={common.container}>
-
+        
         <Head>
-          <title>BugeTrack</title>
+          <title>BudgeTrack</title>
           <meta name="description" content="Tracking All Finances at One Place" />
           <link rel="icon" href="/favicon.ico" />
         </Head>

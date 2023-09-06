@@ -10,12 +10,12 @@ export default function ExpOverview(props) {
 
         <div className={styles.eoItem}>
             <h4>Expenditure</h4>
-            <p className={styles.eoItemValue} style={{'color':'black'}}>{props.data===undefined? 0:props.data.expense}</p>
+            <p className={styles.eoItemValue}>{props.data===undefined? 0:props.data.expense}</p>
         </div> 
 
         <div className={styles.eoItem}>
             <h4>Income</h4>
-            <p className={styles.eoItemValue} style={{'color':'black'}}>{props.data===undefined? 0:props.data.income}</p>
+            <p className={styles.eoItemValue}>{props.data===undefined? 0:props.data.income}</p>
         </div> 
     </div>
   )

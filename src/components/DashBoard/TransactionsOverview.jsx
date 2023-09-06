@@ -6,17 +6,17 @@ export default function TransactionsOverview(props) {
         <h2>Transaction Detail</h2>
         <div className={styles.toItem}>
             <h4>Total Transactions</h4>
-            <p className={styles.toItemValue} style={{'color':'black'}}>{props.data.total_transactions}</p>
+            <p className={styles.toItemValue} >{props.data.total_transactions}</p>
         </div> 
 
         <div className={styles.toItem}>
             <h4>Total InFlows</h4>
-            <p className={styles.toItemValue} style={{'color':'black'}}>{props.data.inflow_transactions}</p>
+            <p className={styles.toItemValue} >{props.data.inflow_transactions}</p>
         </div> 
         
         <div className={styles.toItem}>
             <h4>Total OutFlows</h4>
-            <p className={styles.toItemValue} style={{'color':'black'}}>{props.data.outflow_transactions}</p>
+            <p className={styles.toItemValue} >{props.data.outflow_transactions}</p>
         </div> 
         
     </div>

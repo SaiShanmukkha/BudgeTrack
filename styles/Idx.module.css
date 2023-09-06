@@ -30,6 +30,7 @@
     font-size: large;
     margin: 1rem 0;
     text-align: center;
+    color: var(--rt-text-color);
 }
 
 .analyticImg {
@@ -50,6 +51,7 @@
 .sectionTwo h1{
     text-align: center;
     font-size: 3rem;
+    color: var(--header-color);
 }
 
 .sectionTwo .aboutContainer{
@@ -63,14 +65,14 @@
 }
 
 .aboutCard{
-    background-color: rgb(248, 249, 254);
+    background-color: var(--card-background-color);
     border-radius: 10px;
     padding: 1rem;
     flex: 0.5 0.5 auto;
     width: 30%;
     font-weight: 600;
     border: 1px solid rgb(184, 231, 231);
-    box-shadow: 5px 5px 5px 0 rgb(127, 126, 126);
+    box-shadow: var(--card-box-shadow);
 }
 
 .cardIcon {
@@ -86,6 +88,10 @@
 .aboutCard h3{
     color: rgb(135, 18, 245);
     margin: 0.8rem 0;
+}
+
+.aboutCard p{
+    color: var(--rt-text-color);
 }
 
 
@@ -114,6 +120,7 @@
 .section3Data h1{
     font-size: 4rem;
     margin: 1rem 0;
+    color: var(--header-color);
 }
 
 .section3Data p {
@@ -121,6 +128,7 @@
     padding: 1 2rem;
     font-size: 1.3rem;
     text-align: center;
+    color: var(--rt-text-color);
 }
 
 
@@ -134,6 +142,7 @@
 .sectionFour h1 {
     font-size: 4rem;
     margin: 1rem;
+    color: var(--header-color);
 }
 
 .featureCards{
@@ -146,22 +155,23 @@
 
 .featureCard{
     padding: 1rem;
-    background-color: rgb(243, 247, 253);
+    background-color: var(--card-background-color);
     width: 400px;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px 0 rgb(127, 126, 126);
+    box-shadow: var(--card-box-shadow);
     margin: 1rem;
 }
 
 .featureCard h3 {
     font-size: 2rem;
     margin: 1rem 0;
-    color: rgb(68, 68, 208);
+    color: rgb(135, 18, 245);
 }
 
 .featureCard p {
     font-weight: 600;
     margin: 1rem 0;
+    color: var(--rt-text-color);
 }
 
 

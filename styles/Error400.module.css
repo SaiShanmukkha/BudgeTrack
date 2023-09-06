@@ -26,7 +26,7 @@
 }
 
 .ErrorMessageContainer h2{
-    color: rgb(24, 23, 23);
+    color: var(--header-color);
 }
 
 @media screen and (max-width: 720px) {

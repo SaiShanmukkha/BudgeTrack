@@ -13,7 +13,7 @@
 /* Recent Transactions */
 
 .rtCard{
-    background-color: white;
+    background-color: var(--card-background-color);
     border-radius: 10px;
     min-height: 21rem;
     margin: 5px 2px;
@@ -23,7 +23,7 @@
 }
 
 .rtCard h2{
-    color: rgb(68, 69, 69);
+    color: var(--header-color);
 }
 
 .rtItem{
@@ -37,7 +37,7 @@
 }
 
 .rtItem:hover{
-    background-color: rgb(232, 213, 250);
+    background-color: var(--rt-hover-color);
     transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -72,11 +72,11 @@
 .rtItemDetail p{
     font-size: small;
     font-weight: 600;
-    color: rgb(96, 94, 94);
+    color: var(--rt-text-color);
 }
 
 .rtItem:hover .rtItemDetail p{
-    color: black;
+    color: var(--rt-text-hover-color);
 }
 
 .rtItemIcon{
@@ -102,7 +102,7 @@
 /* Expense Overview */
 .eoCard{
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--card-background-color);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -110,7 +110,7 @@
     margin: 10px 2px;
     padding: 20px;
     overflow: hidden;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--card-box-shadow);
 }
 
 .eoItem{
@@ -119,6 +119,10 @@
     justify-content: space-between;
     align-items: center;
     margin: 10px 0px;
+}
+
+.eoItem h4{
+    color: var(--header-color);
 }
 
 .eoItemHeader{
@@ -165,11 +169,13 @@
 .eoItemValue{
     font-weight: 600;
     font-size: larger;
+    color: var(--rt-text-color);
+    font-family: 'Roboto';
 }
 
 /* Expense Details */
 .edCard{
-    background-color: white;
+    background-color: var(--card-background-color);
     border-radius: 10px;
     margin: 5px 2px;
     padding: 15px;
@@ -180,6 +186,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    color: var(--header-color);
 }
 
 .transaction_link{
