@@ -6,8 +6,8 @@ import Moon from "../../assets/moon.gif";
 import Image from "next/image"
 
 const DarkModeButton = () => {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true)

@@ -10,7 +10,7 @@ import { ThemeProvider } from 'next-themes';
 
 function MyApp({ Component, pageProps: {session, ...pageProps} }) { 
   return (
-    <ThemeProvider>
+    <ThemeProvider enableSystem={false}>
       <SessionProvider session={session}>
         <SWRConfig value={{
             revalidateIfStale: false,
